@@ -5,6 +5,6 @@
 <TITLE>Carnet de Patient</TITLE>
 </head>
 <body>
-	
+	<h1>Bonjour toto</h1>
 </body>
 </HTML>
