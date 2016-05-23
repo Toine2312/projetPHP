@@ -1,6 +1,7 @@
 <?php
 	session_start();
 	//$_SESSION["etat"]="Connexion"
+	include("ConnexionBDD.php");
 ?>
 <!DOCTYPE HTML>
 <html>
@@ -48,7 +49,7 @@ if(isset($_SESSION["login"])){
 		include("listeRDV.php");
 	}
 	elseif (isset($_GET["patients"])) {
-		include("patients.php");
+		include("Patient.php");
 	}
 	elseif (isset($_GET["medecins"])) {
 		include("medecins.php");
