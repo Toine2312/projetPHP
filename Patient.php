@@ -2,6 +2,7 @@
 <HTML>
 <head>
 <link rel="stylesheet" href="patient.css" />
+<link rel="stylesheet" type="text/css" href="style.css" media="all"/>
 <TITLE>Carnet de Patient</TITLE>
 </head>
 <body>

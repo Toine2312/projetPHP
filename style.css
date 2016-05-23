@@ -1,0 +1,66 @@
+.container {
+    width: 952px;
+    margin-top: 0px;
+    margin-right: auto;
+    margin-bottom: 0px;
+    margin-left: auto;
+}
+
+#header{
+    overflow: hidden;
+    margin: 15px 0 25px;
+    padding: 10px 10px 10px 10px;
+    display: block;
+    background-color: dimgrey;
+}
+
+#logoAccueil{
+  display: block;
+  float: left;
+}
+
+#logoAccueil img{
+  width: 400px;
+  height: 110px;
+}
+
+#connexion{
+  float: right;
+  margin-top: 5px;
+
+}
+
+#menu{
+  float: right;
+}
+
+#menu nav {
+  list-style: none ;
+  text-align: center ;
+  margin-top: 38px;
+  margin-right: 0px;
+  
+}
+
+#menu nav li {
+  display: inline ;
+  margin-right: 1px ;
+  color: #fff ;
+  background: #c00 ;
+}
+
+#menu nav li a {
+  padding: 15px 15px ;
+  background: #2673FF ;
+  color: #fff ;
+  border: 1px solid white ;
+  font: 1em "Trebuchet MS",Arial,sans-serif ;
+  line-height: 1em ;
+  text-align: center ;
+  text-decoration: none ;
+}
+
+#menu nav li a:hover, #menu nav li a:focus, #menu nav li a:active {
+  background: black ;
+  /*text-decoration: underline ;*/
+}
