@@ -1,5 +1,10 @@
 <?php
 	session_start();
+<<<<<<< HEAD
+=======
+	//$_SESSION["etat"]="Connexion"
+	include("ConnexionBDD.php");
+>>>>>>> master
 ?>
 <!DOCTYPE HTML>
 <html>
@@ -11,7 +16,11 @@
 		<div class="container">
 			<header id="header">
 					<div id="logoAccueil">
+<<<<<<< HEAD
 						<a href="index.php"><img src="img/cabinetMedical2.jpg" alt="CabMed"></a>
+=======
+						<a href="index.php"><img src="cabinetMedical2.jpg" alt="CabMed"></a>
+>>>>>>> master
 					</div>
 					<div id="connexion">
 						<form method="POST" action="./">
@@ -19,7 +28,11 @@
 								<tr>
 									<td><input type="text" placeholder="Identifiant" name="login"<?php if(isset($_SESSION["login"])){ echo 'value="'.$_SESSION["login"].'"';} ?>></td>
 									<td><input type="password" name="mdp" placeholder="Mot de passe" <?php if(isset($_SESSION["login"])){ echo 'value="'.$_SESSION["mdp"].'"';} ?>></td>
+<<<<<<< HEAD
 									<td><input type="submit" name="conn" value=<?php echo "'".$_SESSION["etat"]."'" ?>></td>
+=======
+									<td><input type="submit" name="conn" value=<?php echo '"'.$_SESSION["etat"].'"' ?>></td>
+>>>>>>> master
 								</tr>
 							</table>
 						</form>
@@ -47,7 +60,11 @@ if(isset($_SESSION["login"])){
 		include("listeRDV.php");
 	}
 	elseif (isset($_GET["patients"])) {
+<<<<<<< HEAD
 		include("patients.php");
+=======
+		include("Patient.php");
+>>>>>>> master
 	}
 	elseif (isset($_GET["medecins"])) {
 		include("medecins.php");
