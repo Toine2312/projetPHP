@@ -34,8 +34,8 @@
 						<td>".$res['dateNaissanceP']."</td>
 						<td>".$res['lieuNaissanceP']."</td>
 						<td>".$res['numSS']."</td>
-						<td style='text-align:center;'><a href='modifierPatient.php?idPatient=".$res['idPatient']."'><IMG src='img/modifier.png' alt='Modifier ce contact'></a></td>
-						<td style='text-align:center;'><a href='supprimerPatient.php?idPatient=".$res['idPatient']."'><IMG src='img/supprimer.png' alt='Supprimer ce contact'></a></td>
+						<td style='text-align:center;'><a href='modifierPatient.php?idPatient=".$res['idPatient']."'><IMG src='modifier.png' alt='Modifier ce contact'></a></td>
+						<td style='text-align:center;'><a href='supprimerPatient.php?idPatient=".$res['idPatient']."'><IMG src='supprimer.png' alt='Supprimer ce contact'></a></td>
 					</tr>";
 			}
 			?>
