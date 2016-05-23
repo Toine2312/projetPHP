@@ -1,5 +1,5 @@
 <?php
-if (isset($_POST['nom']) && isset($_POST['prenom']) && isset($_POST['dateNaissance'])) {
+if (isset($_POST['nom']) && isset($_POST['prenom']) && isset($_POST['dateNaissance']) && isset($_POST['numSS'])) {
 	$civiliteP=$_POST['civilite'];
 	$nom=$_POST['nom'];
 	$prenom=$_POST['prenom'];
@@ -23,6 +23,6 @@ if (isset($_POST['nom']) && isset($_POST['prenom']) && isset($_POST['dateNaissan
 						'lieuNaissance'=>$lieuNaissanceP, 
 						'numSS'=>$numSS));
 	echo "<center><H2>Contact ajouter a la base<br></H2><center>";
-	echo "<center><a href='Patient.php'> Retour a la saisie </a><center>";
+	echo "<meta http-equiv='refresh' content='2; URL=http://localhost/Tpdut/DUTToulouse/ExCours/GestionCabinetMedical/Patient.php'></meta>";
 }
 ?>
