@@ -45,7 +45,7 @@ if(isset($_POST["conn"])){
 		include("connexion.php");
 }
 if(isset($_SESSION["login"])){
-	if(isset($_GET["consult"])){
+	if(isset($_GET["consult"]) || isset($_POST["consult"])){
 		include("listeRDV.php");
 	}
 	elseif (isset($_GET["patients"])) {
