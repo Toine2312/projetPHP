@@ -78,7 +78,6 @@
 			<?php
 				$res3 = $linkpdo->query('SELECT * FROM rdv ORDER BY dateRdv , heure DESC'); 
 			?>
-				///Affichage des entrées du résultat une à une
 				<br><center><table>
 				<tr> 
 					<th> Patient</th>
@@ -92,13 +91,13 @@
 			?>
 			 		<tr> 
 						<form action='./?consult=ok' method='POST' id=".$i.">
-							<input type='hidden' name='idRdvModif' value='".$data['idRdv']."'>
-							<td><input type = 'text' name='patientModif' <?php if(!isset($_POST["modifier"])){echo "readonly";}?>value='".$data['idPatient']."'</input></td>
-							<td><input type = 'text' name='medecinModif' readonly value='".$data['idMed']."'</input></td>
-							<td><input type = 'text' name='dateModif' readonly value='".$data['dateRdv']."'</td>
-							<td><input type = 'text' name='heureModif' readonly value='".$data['heure']."'</td>
-							<td><input type = 'text' name='dureeModif'readonly value='".$data['duree']."'</td>
-							<td><input src='modifier.png' type='submit' value='modifier' align='middle'name = 'modifier'></input></td>
+							<input type='hidden' name='idRdvModif' <?php echo "value='".$data['idRdv']."'"?>>
+							<td><input type = 'text' name='patientModif' <?php echo "value='".$data['idPatient']."'"?> <?php $val="modifier".$data["idRdv"]; if(!isset($_POST[$val])){echo "readonly";}?>></input></td>
+							<td><input type = 'text' name='medecinModif' readonly <?php echo "value='".$data['idMed']."'"?>></input></td>
+							<td><input type = 'text' name='dateModif' readonly <?php echo "value='".$data['dateRdv']."'"?>></td>
+							<td><input type = 'text' name='heureModif' readonly <?php echo "value='".$data['heure']."'"?>></td>
+							<td><input type = 'text' name='dureeModif'readonly <?php echo "value='".$data['duree']."'"?>></td>
+							<td><input src='modifier.png' type='submit' value='modifier' align='middle'<?php echo "name = 'modifier".$data["idRdv"]."'"?>></input></td>
 							<td><input src='croix.png' type='submit'  value='supprimer'align='middle' name = 'supprimer'></input></td>
 						</form>
 					</tr>
