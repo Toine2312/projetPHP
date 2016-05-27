@@ -32,7 +32,7 @@ if (isset($_POST['nom']) && isset($_POST['prenom']) && isset($_POST['dateNaissan
 						'lieuNaissance'=>$lieuNaissanceP, 
 						'numSS'=>$numSS));
 	echo "<center><H2>Contact ajouter a la base<br></H2><center>";
-	echo "<meta http-equiv='refresh' content='1; URL=http://localhost/Tpdut/DUTToulouse/ExCours/GestionCabinetMedical/?patients=ok''></meta>";
+	echo "<meta http-equiv='refresh' content='1; URL=./?patients=ok''></meta>";
 }
 ?>
 	</div>

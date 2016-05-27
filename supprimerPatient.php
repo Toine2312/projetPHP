@@ -15,7 +15,7 @@
 					$req = $linkpdo->prepare('DELETE FROM patient WHERE idPatient = :id');
 					$req->execute(array('id' => $id)); 
 					echo "<center><h2>Contact supprimé avec succes !</h2></center>";
-					echo "<meta http-equiv='refresh' content='1; URL=http://localhost/Tpdut/DUTToulouse/ExCours/GestionCabinetMedical/?patients=ok''></meta>";
+					echo "<meta http-equiv='refresh' content='1; URL=./?patients=ok''></meta>";
 			}
 		?>
 	</div>

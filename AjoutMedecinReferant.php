@@ -20,7 +20,7 @@
 									'id' => $id));
 
 				echo "<center><h2>Nouveau medecin referant pris en compte</h2></center>";
-				echo "<meta http-equiv='refresh' content='1; URL=http://localhost/Tpdut/DUTToulouse/ExCours/GestionCabinetMedical/?patients=ok'></meta>";
+				echo "<meta http-equiv='refresh' content='1; URL=./?patients=ok'></meta>";
 				
 			}
 
@@ -59,7 +59,7 @@
 										</tr>
 									</table>
 								</form>
-								<center><a href='http://localhost/Tpdut/DUTToulouse/ExCours/GestionCabinetMedical/?patients=ok'>Retour</a></center>";
+								<center><a href='http:./?patients=ok'>Retour</a></center>";
 						}
 					}else{
 						echo "<H1><center>Choisissez un medecin referant pour ".$res['civiliteP']." ".$res['nomP']." ".$res['prenomP']." </center></H1>
@@ -85,7 +85,7 @@
 									</tr>
 								</table>
 							</form>
-							<center><a href='http://localhost/Tpdut/DUTToulouse/ExCours/GestionCabinetMedical/?patients=ok'>Retour</a></center>";
+							<center><a href='./?patients=ok'>Retour</a></center>";
 					}
 				}
 			}

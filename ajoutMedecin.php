@@ -20,7 +20,7 @@ if (isset($_POST['nom']) && isset($_POST['prenom'])) {
 						'nom'=>$nom, 
 						'prenom'=>$prenom));
 	echo "<center><H2>Medecin ajouter a la base<br></H2><center>";
-	echo "<meta http-equiv='refresh' content='1; URL=http://localhost/Tpdut/DUTToulouse/ExCours/GestionCabinetMedical/?medecins=ok''></meta>";
+	echo "<meta http-equiv='refresh' content='1; URL=./?medecins=ok''></meta>";
 }
 ?>
 	</div>
