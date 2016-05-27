@@ -52,7 +52,7 @@ if(isset($_SESSION["login"])){
 		include("Patient.php");
 	}
 	elseif (isset($_GET["medecins"])) {
-		include("medecins.php");
+		include("Medecin.php");
 	}
 	elseif (isset($_GET["statistiques"])) {
 		include("statistiques.php");
