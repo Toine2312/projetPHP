@@ -1,7 +1,7 @@
 <!DOCTYPE>
 <HTML>
 <head>
-<link rel="stylesheet" href="patient.css" />
+<link rel="stylesheet" href="Patient.css" />
 <link rel="stylesheet" type="text/css" href="style.css" media="all"/>
 <TITLE>Carnet de Patient</TITLE>
 </head>
@@ -35,7 +35,7 @@
 									'id' => $id));
 
 				echo "<center><h2>Contact modifié avec succes !</h2></center>";
-				echo "<meta http-equiv='refresh' content='2; URL=http://localhost/Tpdut/DUTToulouse/ExCours/GestionCabinetMedical/Patient.php'></meta>";
+				echo "<meta http-equiv='refresh' content='1; URL=http://localhost/Tpdut/DUTToulouse/ExCours/GestionCabinetMedical/?patients=ok'></meta>";
 				
 			}
 
@@ -45,18 +45,19 @@
 				include"./ConnexionBDD.php";
 				$req=$linkpdo->query("Select * from patient where idPatient='$id'");
 				if($res=$req->fetch()) {
-					echo "	<form action='modifierPatient.php' method='POST'>
+					echo "<H1><center>Modifier ce patient ?</center></H1>
+							<form action='modifierPatient.php' method='POST'>
 								<table align='center' bgcolor='D8D8D8' style='border-radius: 10px'>
 									<tr>
-										<td style='text-align:center;'>Civilit&eacute;</td>
-										<td style='text-align:center;'>Nom</td>
-										<td style='text-align:center;'>Prenom</td>
-										<td style='text-align:center;'>Adresse</td>
-										<td style='text-align:center;'>Code postal</td>
-										<td style='text-align:center;'>Ville</td>
-										<td style='text-align:center;'>Date de Naissance</td>
-										<td style='text-align:center;'>Lieu de Naissance</td>
-										<td style='text-align:center;'>Numero Securit&eacute; Social</td>
+										<td>Civilit&eacute;</td>
+										<td>Nom</td>
+										<td>Prenom</td>
+										<td>Adresse</td>
+										<td>Code postal</td>
+										<td>Ville</td>
+										<td>Date de Naissance</td>
+										<td>Lieu de Naissance</td>
+										<td>Numero Securit&eacute; Social</td>
 									</tr>
 									<tr>";
 								if ($res['civiliteP']=='M.') {
@@ -64,23 +65,25 @@
 								}else{
 									echo "<td><select name='civilite'><option value='Mme.' selected='selected'>Mme.</option><option value='M.'>M.</option></select></td>";
 								}
-									echo "<td><input type='text' name='nom' value=\"".$res['nomP']."\"></td>
-										<td><input type='text' name='prenom' value=\"".$res['prenomP']."\"></td>
-										<td><input type='text' name='adresse' value=\"".$res['adresseP']."\"></td>
-										<td><input type='text' name='cp' value=\"".$res['cpP']."\"></td>
-										<td><input type='text' name='ville' value=\"".$res['villeP']."\"></td>
-										<td><input type='date' name='dateNaissance' value=\"".$res['dateNaissanceP']."\"></td>
-										<td><input type='text' name='lieuNaissance' value=\"".$res['lieuNaissanceP']."\"></td>
-										<td><input type='text' name='numSS' value=\"".$res['numSS']."\"></td>
-										<td colspan=2 align='center'><input type='submit' value='Modifier'><input type='hidden' name='id' value=".$res['idPatient']."></td>
+									echo "<td><input type='text' name='nom' value=\"".$res['nomP']."\" id='tdNom_Prenom_Ville'></td>
+										<td><input type='text' name='prenom' value=\"".$res['prenomP']."\" id='tdNom_Prenom_Ville'></td>
+										<td><input type='text' name='adresse' value=\"".$res['adresseP']."\" id='tdadresse'></td>
+										<td><input type='text' name='cp' value=\"".$res['cpP']."\" id='tdCp'></td>
+										<td><input type='text' name='ville' value=\"".$res['villeP']."\" id='tdNom_Prenom_Ville'></td>
+										<td><input type='date' name='dateNaissance' value=\"".$res['dateNaissanceP']."\" id='tdDate_Lieu_Naiss'></td>
+										<td><input type='text' name='lieuNaissance' value=\"".$res['lieuNaissanceP']."\" id='tdDate_Lieu_Naiss'></td>
+										<td><input type='text' name='numSS' value=\"".$res['numSS']."\" id='tdNumSS'></td>
+										<td colspan=2 align='center'><input type='submit' value='Oui, Modifier'><input type='hidden' name='id' value=".$res['idPatient']."></td>
 									</tr>
 								</table>
-							</form>";
+							</form>
+							<center><a href='http://localhost/Tpdut/DUTToulouse/ExCours/GestionCabinetMedical/?patients=ok'>Non, Retour</a></center>";
 				}
 			}
 		?>
-		<center><a href="Patient.php">Retour</a></center>
+		
 	</div>
 </body>
 </HTML>
+
 
