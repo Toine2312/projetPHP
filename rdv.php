@@ -86,7 +86,7 @@
 					<th> Date</th>
 					<th> Heure</th>
 					<th> Durée</th>
-				</tr>";
+				</tr>
 			<?php $i=0;
 				while($data = $res3->fetch()) { 
 			?>
