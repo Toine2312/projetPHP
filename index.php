@@ -21,7 +21,7 @@
 								<tr>
 									<td><input type="text" placeholder="Identifiant" name="login"<?php if(isset($_SESSION["login"])){ echo 'value="'.$_SESSION["login"].'"';} ?>></td>
 									<td><input type="password" name="mdp" placeholder="Mot de passe" <?php if(isset($_SESSION["login"])){ echo 'value="'.$_SESSION["mdp"].'"';} ?>></td>
-									<td><input type="submit" name="conn" value=<?php echo '"'.$_SESSION["etat"].'"' ?>></td>
+									<td><input type="submit" name="conn" value=<?php echo '"'.$_SESSION["etat"].'"'; ?>></td>
 								</tr>
 							</table>
 						</form>
@@ -46,7 +46,7 @@ if(isset($_POST["conn"])){
 }
 if(isset($_SESSION["login"])){
 	if(isset($_GET["consult"]) || isset($_POST["consult"])){
-		include("listeRDV.php");
+		include("rdv.php");
 	}
 	elseif (isset($_GET["patients"])) {
 		include("Patient.php");

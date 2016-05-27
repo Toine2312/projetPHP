@@ -10,9 +10,11 @@
 					<fieldset>
 					<legend>Ajouter une consultation</legend>
 					<table>
+						
 						<tr>
 							<td>
-								<select name="patient" onchange="this.form.submit()">
+								<form method="POST" action="./?consult=ok">
+									<select name="patient" onchange="this.form.submit()">
 									<?php 
 										$res = $linkpdo->query('SELECT * FROM patient');
 										while($data = $res->fetch()) {
@@ -49,7 +51,6 @@
 							<td><input type="submit" name="conn" value=<?php echo '"'.$_SESSION["etat"].'"' ?>></td>
 						</tr>
 					</table>
-					<input type="hidden" name="consult" value="ok">
 					</fieldset>
 				</form>
 			</div>
@@ -72,7 +73,7 @@
 					echo "<tr> 
 							<form action='index.php' method='POST' id=".$i.">
 							<input type='hidden' name='id' value='".$data['idContact']."'>
-							<td><input type = 'text' name='nom'readonly value='".$data['nom']."'</input></td>
+							<td><input type = 'text' name='nom' readonly value='".$data['nom']."'</input></td>
 							<td><input type = 'text' name='prenom' readonly value='".$data['prenom']."'</input></td>
 							<td><input type = 'text' name='adresse' readonly value='".$data['adresse']."'</td>
 							<td><input type = 'text' name='cp' readonly value='".$data['cp']."'</td>
