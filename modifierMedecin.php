@@ -23,7 +23,7 @@
 									'id' => $id));
 
 				echo "<center><h2>Medecin modifié avec succes !</h2></center>";
-				echo "<meta http-equiv='refresh' content='1; URL=http://localhost/Tpdut/DUTToulouse/ExCours/GestionCabinetMedical/?medecins=ok'></meta>";
+				echo "<meta http-equiv='refresh' content='1; URL=./?medecins=ok'></meta>";
 				
 			}
 
@@ -53,7 +53,7 @@
 									</tr>
 								</table>
 							</form>
-							<center><a href='http://localhost/Tpdut/DUTToulouse/ExCours/GestionCabinetMedical/?medecins=ok'>Non, Retour</a></center>";
+							<center><a href='./?medecins=ok'>Non, Retour</a></center>";
 				}
 			}
 		?>
