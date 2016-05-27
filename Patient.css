@@ -1,0 +1,40 @@
+h1{
+    color: dimgrey;
+}
+
+#tableau{
+	color: dimgrey;
+    text-align: center;
+}
+
+#premiereLigne{
+	font-weight: bold;
+}
+
+#donnees{
+	font-style: oblique;
+}
+
+#tdCivilite {
+	width: 55px;
+}
+
+#tdNom_Prenom_Ville{
+	width: 100px;
+}
+
+#tdCp{
+	width: 80px;
+}
+
+#tdDate_Lieu_Naiss{
+	width:130px;
+}
+
+#tdadresse{
+	width: 200px;
+}
+
+#tdNumSS{
+	width: 160px;
+}
