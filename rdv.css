@@ -1,0 +1,12 @@
+.btn_modifier{
+	background-image:url("modifier.png");
+
+}
+
+.btn_validerModif{
+	background-image:url("validerModif.png");
+}
+
+.btn_supprimer{
+	background-image:url("supprimer.png");
+}

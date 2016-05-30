@@ -1,5 +1,21 @@
+/*Couleur du site 
+*
+*    background-color: rgba(7, 188, 131, 1)
+*    rgba(25, 144, 206, 1)
+*    rgba(2, 184, 191, 1);
+*
+*
+*
+*/
+
 html{
   background-color: #E0E0E0;
+
+}
+
+*{
+      font-family: Arial, Helvetica, sans-serif;
+
 }
 
 .container {
@@ -8,6 +24,8 @@ html{
     margin-right: auto;
     margin-bottom: 0px;
     margin-left: auto;
+    /*font: normal normal normal 15px/1.4em din-next-w01-light,din-next-w02-light,din-next-w10-light,sans-serif;*/
+    font-family: din-next-w01-light, din-next-w02-light, din-next-w10-light, sans-serif;
 }
 
 #header{
@@ -16,6 +34,7 @@ html{
     padding: 10px 10px 10px 10px;
     display: block;
     background-color: dimgrey;
+    font-family: din-next-w01-light, din-next-w02-light, din-next-w10-light, sans-serif;
 }
 
 #logoAccueil{
