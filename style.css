@@ -13,8 +13,18 @@ html{
 
 }
 
-*{
-      font-family: Arial, Helvetica, sans-serif;
+body{
+      color : #081038;
+      font-family : Arial, Helvetica, sans-serif;
+      font-size : 15px;
+      
+      scrollbar-3d-light-color : #000000;
+      scrollbar-arrow-color : #000000;
+      scrollbar-base-color : #888888;
+      scrollbar-dark-shadow-color : #000000;
+      scrollbar-face-color : #787878;
+      scrollbar-highlight-color : #000000;
+      scrollbar-shadow-color : #ffffff;
 
 }
 
@@ -24,8 +34,10 @@ html{
     margin-right: auto;
     margin-bottom: 0px;
     margin-left: auto;
-    /*font: normal normal normal 15px/1.4em din-next-w01-light,din-next-w02-light,din-next-w10-light,sans-serif;*/
-    font-family: din-next-w01-light, din-next-w02-light, din-next-w10-light, sans-serif;
+   /* background-image:url("CM.jpg");*/
+    background-color: rgba(7, 188, 131, 0.5);
+    /*font: normal normal normal 15px/1.4em din-next-w01-light,din-next-w02-light,din-next-w10-light,sans-serif;
+    font-family: din-next-w01-light, din-next-w02-light, din-next-w10-light, sans-serif;*/
 }
 
 #header{
@@ -34,8 +46,7 @@ html{
     padding: 10px 10px 10px 10px;
     display: block;
     background-color: dimgrey;
-    font-family: din-next-w01-light, din-next-w02-light, din-next-w10-light, sans-serif;
-}
+  }
 
 #logoAccueil{
   display: block;
