@@ -1,14 +1,14 @@
 
 <!DOCTYPE HTML>
-<html>
+<!--<html>
 	<head>	
 		<link rel="stylesheet" type="text/css" href="style.css" media="all"/>
-		<link rel="stylesheet" type="text/css" href="rdv.css" media="all"/>
+		
 	</head>
-	<body>
-		<div class="container">
+	<body>-->
+		<div class="pageInterne"> 
 			<?php
-				include ("./ConnexionBDD.php");
+				//include ("./ConnexionBDD.php");
 				if(isset($_POST["ajout"])){
 					echo "ok".$_POST["patientSelect"];
 					$req1 = $linkpdo -> prepare ('INSERT into rdv (idPatient, idMed, dateRdv, heure, duree) values (:idPatient, :idMed, :dateRdv, :heure, :duree)');
@@ -47,6 +47,7 @@
 								<select name="patient" onchange="this.form.submit()"> 
 									<?php 
 										$res = $linkpdo->query('SELECT * FROM patient');
+											echo "<option value=' ' selected ='selected'></option>";
 											while($data = $res->fetch()) {
 												if(isset($_POST["patient"]) && $_POST["patient"] == $data['idPatient']){
 													echo "<option value='".$data['idPatient']."' selected ='selected'>".$data['nomP']." ".$data['prenomP']."</option>";
@@ -68,7 +69,7 @@
 									<?php 
 										$patient = $_POST["patient"];
 										if(isset($_POST["patient"])){
-											echo"<optgroup>";
+											echo"<optgroup>Medecin referent ";
 											$res = $linkpdo->query('SELECT * FROM medecin WHERE idMed = (SELECT idMed FROM patient where idPatient="'.$_POST["patient"].'")');
 											if($data = $res->fetch()) {
 												echo "<option value='".$data['idMed']."' selected='selected'>".$data['nomM']." ".$data['prenomM']."</option>";
@@ -97,7 +98,7 @@
 							</tr>
 							<tr>
 								<td></td>
-								<td><input type="hidden" name="patientSelect" <?php echo " .0value='".$patient."'"?>></td>
+								<td><input type="hidden" name="patientSelect" <?php echo "value='".$patient."'"?>></td>
 								<td><input type="submit" name="ajout" value="Ajouter"></td>
 							</tr>
 							
@@ -140,5 +141,6 @@
 			?>
 			
 		</div>	
-	</body>
+<!--	</body>
 </html>
+-->

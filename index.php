@@ -8,6 +8,7 @@
 	<head>	
 		<title>Cabinet Medical</title>
 		<link rel="stylesheet" type="text/css" href="style.css" media="all"/>
+		<link rel="stylesheet" type="text/css" href="rdv.css" media="all"/>
 	</head>
 	<body>
 		<div class="container">
@@ -36,32 +37,33 @@
 						</nav>
 					</div>
 					<?php } ?>
+
 			</header>
+			<?php
+				if(isset($_POST["conn"])){
+						include("connexion.php");
+				}
+				if(isset($_SESSION["login"])){
+					if(isset($_GET["consult"]) || isset($_POST["consult"])){
+						include("rdv.php");
+					}
+					elseif (isset($_GET["patients"])) {
+						include("Patient.php");
+					}
+					elseif (isset($_GET["medecins"])) {
+						include("Medecin.php");
+					}
+					elseif (isset($_GET["statistiques"])) {
+						include("statistiques.php");
+					}
+					else{
+						include("accueil.php");
+					}
+				}
+				else{
+					include("accueil.php");
+				}
+			?>
 		</div>
 	</body>
 </html>
-<?php
-if(isset($_POST["conn"])){
-		include("connexion.php");
-}
-if(isset($_SESSION["login"])){
-	if(isset($_GET["consult"]) || isset($_POST["consult"])){
-		include("rdv.php");
-	}
-	elseif (isset($_GET["patients"])) {
-		include("Patient.php");
-	}
-	elseif (isset($_GET["medecins"])) {
-		include("Medecin.php");
-	}
-	elseif (isset($_GET["statistiques"])) {
-		include("statistiques.php");
-	}
-	else{
-		include("accueil.php");
-	}
-}
-else{
-	include("accueil.php");
-}
-?>
