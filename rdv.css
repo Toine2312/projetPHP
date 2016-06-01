@@ -11,3 +11,35 @@
 	background-image:url("supprimer.png");
 }
 
+#listeRDV{
+	background-color: rgba(7, 188, 131, 0.5);
+}
+
+#listeRDV th{
+
+}
+
+#listeRDV input{
+	/*background-color: rgba(7, 188, 131, 0.5);
+	border-color: rgba(7, 188, 131, 0.5);*/
+	border-width:0; 
+}
+
+.date{
+	width: 124px;
+	height: 17px
+}
+
+.heure{
+	width: 67px;
+	height: 17px
+}
+
+.texte{
+	width: 100px;
+}
+
+#formAjout{
+	width: 300px;
+	float: left;
+}

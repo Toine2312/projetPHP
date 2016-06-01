@@ -38,11 +38,10 @@
 				<fieldset>
 					<legend>Ajouter une consultation</legend>
 					<table>
+
 						<tr>
 							<th>Patients</th>
-							<th>Medecins</th>
-						</tr>
-						<tr><form name="validP" method="POST" action="./?consult=ok">
+							<form name="validP" method="POST" action="./?consult=ok">
 							<td>
 								<select name="patient" onchange="this.form.submit()"> 
 									<?php 
@@ -63,6 +62,8 @@
 							<input type="hidden" name="medRef" value=<?php echo '"'.$data['idMed'].'"';?> >
 							
 						</form>
+						<tr>
+							<th>Medecins</th>
 						<form name="validP" method="POST" action="./?consult=ok">
 							<td>
 								<select name="medecin">
@@ -88,16 +89,17 @@
 							</tr>
 							<tr>
 								<th>Date</th>
+								<td><input type= "date" class="date" name="dateRdv" ></td>
+							</tr>
+							<tr>
 								<th>Heure</th>
+								<td><input type="time" class="heure" name="heure"></td>
+							</tr>
+							<tr>
 								<th>Durée</th>
+								<td><input type="time" class="heure" name="duree" value="00:30:00"></td>
 							</tr>
 							<tr>
-								<td><input type= "date" name="dateRdv" ></td>
-								<td><input type="time" name="heure"></td>
-								<td><input type="time" name="duree"></td>
-							</tr>
-							<tr>
-								<td></td>
 								<td><input type="hidden" name="patientSelect" <?php echo "value='".$patient."'"?>></td>
 								<td><input type="submit" name="ajout" value="Ajouter"></td>
 							</tr>
@@ -106,40 +108,59 @@
 					</table>
 				</fieldset>
 			</div>
-			<?php
-				$res3 = $linkpdo->query('SELECT * FROM rdv ORDER BY dateRdv , heure DESC'); 
-			?>
-				<br><center><table>
+			<div id="consultations">
+				<br><center>
+				<table id="listeRDV">
+				<tr ><th colspan=3>Liste des RDV de : </th>
+					<th colspan=2><form  method="POST" action="./?consult=ok">
+						<select name="triMedecin"  onchange="this.form.submit()">
+							<option value="1">Tout le monde</option>
+							<?php
+							$res = $linkpdo->query('SELECT * FROM medecin /*WHERE idMed <> '.$POST["medRef"].')*/');
+								while($data = $res->fetch()) {
+										echo "<option value='idMed=".$data['idMed']."'>".$data['nomM']." ".$data['prenomM']."</option>";
+								}
+							?>
+						</select>
+					</form>
+				</th></tr>
 				<tr> 
-					<th> Patient</th>
-					<th> Medecin</th>
 					<th> Date</th>
 					<th> Heure</th>
+					<th> Patient</th>
+					<th> Medecin</th>
 					<th> Durée</th>
 				</tr>
-			<?php $i=0;
-				while($data = $res3->fetch()) { 
-			?>
-			 		<tr> 
-						<form action='./?consult=ok' method='POST' id=".$i.">
-							<input type='hidden' name='idRdvModif' <?php echo "value='".$data['idRdv']."'"?>>
-							<td><input type = 'text' name='patientModif' <?php echo "value='".$data['idPatient']."'"?> <?php $val="modifier".$data["idRdv"]; if(!isset($_POST[$val])){echo "readonly";}?>></input></td>
-							<td><input type = 'text' name='medecinModif' <?php echo "value='".$data['idMed']."'"?><?php $val="modifier".$data["idRdv"]; if(!isset($_POST[$val])){echo "readonly";}?>></input></td>
-							<td><input type = 'date' name='dateModif'  <?php echo "value='".$data['dateRdv']."'"?> <?php $val="modifier".$data["idRdv"]; if(!isset($_POST[$val])){echo "readonly";}?>></td>
-							<td><input type = 'time' name='heureModif' <?php echo "value='".$data['heure']."'"?> <?php $val="modifier".$data["idRdv"]; if(!isset($_POST[$val])){echo "readonly";}?>></td>
-							<td><input type = 'time' name='dureeModif' <?php echo "value='".$data['duree']."'"?> <?php $val="modifier".$data["idRdv"]; if(!isset($_POST[$val])){echo "readonly";}?>></td>
-							<td><input type='submit' <?php $val="modifier".$data["idRdv"]; echo (!isset($_POST[$val])) ? 'class="btn_modifier"' : 'class="btn_validerModif"';?> value=" " align='middle'<?php echo (!isset($_POST[$val])) ? "name = 'modifier".$data["idRdv"]."'" : "name = 'validerModif".$data["idRdv"]."'"?>></input></td>
-							<td><input class="btn_supprimer" type='submit'  value=" " align='middle' name = 'supprimer'></input></td>
-						</form>
-					</tr>
-			<?php
-					$i++;
-			    }
-			    	echo "</table></center>";
-				///Fermeture du curseur d'analyse des résultats
-			   	$res->closeCursor(); 
-			?>
-			
+				<?php 
+					$i=0;
+					if(isset($_POST["triMedecin"])){
+						$res3 = $linkpdo->query('SELECT * FROM rdv WHERE '.$_POST["triMedecin"].' ORDER BY dateRdv , heure ASC'); 
+					}
+					else{
+						$res3 = $linkpdo->query('SELECT * FROM rdv ORDER BY dateRdv , heure DESC '); 
+					}
+					while($data = $res3->fetch()) { 
+				?>
+				 		<tr> 
+							<form action='./?consult=ok' method='POST' id=".$i.">
+								<input type='hidden' name='idRdvModif' <?php echo "value='".$data['idRdv']."'"?>>
+								<td><input type = 'date' class="date" name='dateModif'  <?php echo "value='".$data['dateRdv']."'"?> <?php $val="modifier".$data["idRdv"]; if(!isset($_POST[$val])){echo "readonly";}?>></td>
+								<td><input type = 'time' class="heure" name='heureModif' <?php echo "value='".$data['heure']."'"?> <?php $val="modifier".$data["idRdv"]; if(!isset($_POST[$val])){echo "readonly";}?>></td>
+								<td><input type = 'text' class="texte" name='patientModif' <?php echo "value='".$data['idPatient']."'"?> <?php $val="modifier".$data["idRdv"]; if(!isset($_POST[$val])){echo "readonly";}?>></input></td>
+								<td><input type = 'text' class="texte" name='medecinModif' <?php echo "value='".$data['idMed']."'"?><?php $val="modifier".$data["idRdv"]; if(!isset($_POST[$val])){echo "readonly";}?>></input></td>
+								<td><input type = 'time' class="heure" name='dureeModif' <?php echo "value='".$data['duree']."'"?> <?php $val="modifier".$data["idRdv"]; if(!isset($_POST[$val])){echo "readonly";}?>></td>
+								<td><input type='submit' <?php $val="modifier".$data["idRdv"]; echo (!isset($_POST[$val])) ? 'class="btn_modifier"' : 'class="btn_validerModif"';?> value=" " align='middle'<?php echo (!isset($_POST[$val])) ? "name = 'modifier".$data["idRdv"]."'" : "name = 'validerModif".$data["idRdv"]."'"?>></input></td>
+								<td><input class="btn_supprimer" type='submit'  value=" " align='middle' name = 'supprimer'></input></td>
+							</form>
+						</tr>
+				<?php
+						$i++;
+				    }
+				    	echo "</table></center>";
+					///Fermeture du curseur d'analyse des résultats
+				   	$res->closeCursor(); 
+				?>
+			</div>
 		</div>	
 <!--	</body>
 </html>
