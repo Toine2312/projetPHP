@@ -91,3 +91,20 @@
 	</div>
 </body>
 </HTML>
+
+<?php
+require_once("../conf.php");
+?>
+<!DOCTYPE HTML>
+<html>
+    <head>
+		<title>phpChart - Pie Chart 3</title>
+    </head>
+    <body>
+        <div><span> </span><span id="info1b"></span></div>
+
+
+    ?>
+
+    </body>
+</html>
