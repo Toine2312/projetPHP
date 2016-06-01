@@ -14,29 +14,31 @@
 		<link rel="stylesheet" type="text/css" href="rdv.css" media="all"/>
 	</head>
 	<body>
-			<header id="header">
+			<header>
 					<div id="logoAccueil">
 						<a href="index.php"><img src="logoSite.png" alt="CabMed"></a>
 					</div>
-					<div id="connexion">
-						<form method="POST" action="./" id="formulaireCo">
-							<table>
-								<tr>
-									<td><input type="text" placeholder="Identifiant" name="login"<?php if(isset($_SESSION["login"])){ echo 'value="'.$_SESSION["login"].'"';} ?>></td>
-									<td><input type="password" name="mdp" placeholder="Mot de passe" <?php if(isset($_SESSION["login"])){ echo 'value="'.$_SESSION["mdp"].'"';} ?>></td>
-									<td><input type="submit" name="conn" value=<?php echo '"'.$_SESSION["etat"].'"'; ?>></td>
-								</tr>
-							</table>
-						</form>
-					</div>
-					<?php if(isset($_SESSION["login"])){ ?>
-					<div id ="menu">
-						<nav>
-							<li><a href="?consult=ok">CONSULTATIONS</a></li>
-							<li><a href="?patients=ok">PATIENTS</a></li>
-							<li><a href="?medecins=ok">MEDECINS</a></li>
-							<li><a href="?statistiques=ok">STATISTIQUES</a></li>
-						</nav>
+					<div id="headerDroite">
+						<div id="connexion">
+							<form method="POST" action="./" id="formulaireCo">
+								<table>
+									<tr>
+										<td><input type="text" placeholder="Identifiant" name="login"<?php if(isset($_SESSION["login"])){ echo 'value="'.$_SESSION["login"].'"';} ?>></td>
+										<td><input type="password" name="mdp" placeholder="Mot de passe" <?php if(isset($_SESSION["login"])){ echo 'value="'.$_SESSION["mdp"].'"';} ?>></td>
+										<td><input type="submit" name="conn" value=<?php echo '"'.$_SESSION["etat"].'"'; ?>></td>
+									</tr>
+								</table>
+							</form>
+						</div>
+						<?php if(isset($_SESSION["login"])){ ?>
+						<div id ="menu">
+							<nav>
+								<li><a href="?consult=ok">CONSULTATIONS</a></li>
+								<li><a href="?patients=ok">PATIENTS</a></li>
+								<li><a href="?medecins=ok">MEDECINS</a></li>
+								<li><a href="?statistiques=ok">STATISTIQUES</a></li>
+							</nav>
+						</div>
 					</div>
 					<?php } ?>
 

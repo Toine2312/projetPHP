@@ -207,7 +207,7 @@
 		echo "<meta http-equiv='refresh' content='1; URL=./?patients=ok''></meta>";
 	}
 	?>
-
+	<br>
 	<H1><center>Nos Patients</center></H1>
 	<table id="tableauPatient">
 		<tr id="premiereLigne">

@@ -5,10 +5,13 @@
 *    rgba(2, 184, 191, 1);
 *
 */
+*{
+  margin: 0;
+  padding: 0;
+}
 
 html{
   background-color: rgba(2, 184, 191, 0.1);
-  overflow-Y:none
 }
 
 body{
@@ -18,11 +21,11 @@ body{
   margin: 0px;
 }
 
-#header{
-  width: 100%;
+header{
   overflow: hidden;
   display: block;
   background-color: white;
+  padding-left: 10%;
 }
 
 #logoAccueil{
@@ -31,16 +34,18 @@ body{
 }
 
 #logoAccueil img{
-  padding-left: 200px; 
   width: 400px;
   height: 190px;
+}
+
+#headerDroite{
+  padding-right: 10%;
 }
 
 #connexion{
   padding-top: 20px;
   display: flex;
   flex-direction: column;
-  margin-right: 200px;
   /*background-color: rgba(25, 144, 206, 1);*/
   width: 650px;
   height: 97px;
@@ -53,7 +58,6 @@ body{
 
 #menu{
   display: block;
-  margin-right: 200px;
   /*background-color: rgba(7, 188, 131, 1);*/
   width: 650px;
   height: 80px;
@@ -100,8 +104,8 @@ body{
 
 
 .container {
-  width: 1200px;
-  height: 500px;
+  width: 80%;
+  height: 490px;
   margin-top: 0px;
   margin-right: auto;
   margin-bottom: 0px;
@@ -119,13 +123,16 @@ body{
 
 footer{
   background-color: rgba(7, 188, 131, 1);
+  position:absolute;
+  width:100%;
+  bottom:0;
+  padding-top: 10px;
+  height: 50px;
 }
 
 footer p{
-  padding-top: 10px;
-  height: 50px;
   text-align: center;
   color: white;
   margin-bottom: 0px;
-  bottom:0px;
+  
 }

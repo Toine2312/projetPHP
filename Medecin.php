@@ -84,7 +84,7 @@
 			echo "<meta http-equiv='refresh' content='1; URL=./?medecins=ok''></meta>";
 		}
 	?>
-
+	<br>
 	<H1><center>Nos M&eacute;decins</center></H1>
 	<table id="tableauMed" align="center">
 		<tr id="premiereLigne">
