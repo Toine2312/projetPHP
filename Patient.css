@@ -1,18 +1,56 @@
-h1{
-    color: dimgrey;
-}
-
-#tableauPatient{
-	color: dimgrey;
-    text-align: center;
-}
-
-#premiereLigne{
+#titre{
+	font-size: 40px;
+	color:white;
 	font-weight: bold;
 }
 
-#donnees{
-	font-style: oblique;
+#text{
+	font-size: 20px;
+	color:white;
+}
+
+#tableauModif{
+	background-color: rgba(27, 20, 120, 0.9);
+	display: block;
+	margin-left: 35%;
+	margin-right: 35%;
+	padding: 10px;
+	color: white;
+    text-align: center;
+    border-collapse: collapse;
+}
+
+#tableauModif tr td{
+	padding: 2px;
+}
+
+#tableauPatient{
+	background-color: rgba(27, 20, 120, 0.9);
+	display: block;
+	margin: 1%;
+	padding: 2px;
+	color: white;
+    text-align: center;
+    border-collapse: collapse;
+}
+
+#tableauPatient tr td{
+	padding: 3px;
+}
+
+#enteteTab{
+	font-weight: bold;
+	border-top: none;
+	border-bottom: none;
+}
+
+#donnees tr td{
+	font-style: normal;
+	border: 1px solid white;
+	border-left: none;
+    border-right: none;
+    border-top: none;
+    
 }
 
 #tdCivilite {
@@ -21,6 +59,7 @@ h1{
 
 #tdNom_Prenom_Ville{
 	width: 100px;
+	text-align: left;
 }
 
 #tdCp{
@@ -32,7 +71,8 @@ h1{
 }
 
 #tdadresse{
-	width: 200px;
+	width: 230px;
+	text-align: right;
 }
 
 #tdNumSS{

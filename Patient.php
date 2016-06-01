@@ -6,7 +6,7 @@
 				include"./ConnexionBDD.php";
 				$req = $linkpdo->prepare('DELETE FROM patient WHERE idPatient = :id');
 				$req->execute(array('id' => $id));
-				echo "<center><h2>Contact supprimé avec succes !</h2></center>";
+				echo "<br><p id='text'>Contact supprimé avec succes !</p>";
 				echo "<meta http-equiv='refresh' content='1; URL=./?patients=ok''></meta>";
 		}
 	?>
@@ -39,7 +39,7 @@
 							'nvNumSS' => $numSS,
 							'id' => $id));
 
-		echo "<center><h2>Contact modifié avec succes !</h2></center>";
+		echo "<br><p id='text'>Contact modifié avec succes !</p>";
 		echo "<meta http-equiv='refresh' content='1; URL=./?patients=ok'></meta>";
 		
 	}
@@ -50,9 +50,9 @@
 		include"./ConnexionBDD.php";
 		$req=$linkpdo->query("Select * from patient where idPatient='$id'");
 		if($res=$req->fetch()) {
-			echo "<H1><center>Modifier ce patient ?</center></H1>
+			echo "<br><p id='text'>Modifier ce patient ?</p>
 					<form action='./?patients=ok' method='POST'>
-						<table>
+						<table id='tableauPatient'>
 							<tr>
 								<td>Civilit&eacute;</td>
 								<td>Nom</td>
@@ -75,7 +75,7 @@
 								<td><input type='text' name='adresse' value=\"".$res['adresseP']."\" id='tdadresse'></td>
 								<td><input type='text' name='cp' value=\"".$res['cpP']."\" id='tdCp'></td>
 								<td><input type='text' name='ville' value=\"".$res['villeP']."\" id='tdNom_Prenom_Ville'></td>
-								<td><input type='date' name='dateNaissance' value=\"".$res['dateNaissanceP']."\" id='tdDate_Lieu_Naiss'></td>
+								<td><input type='date' name='dateNaissance' class='date' value=\"".$res['dateNaissanceP']."\" id='tdDate_Lieu_Naiss'></td>
 								<td><input type='text' name='lieuNaissance' value=\"".$res['lieuNaissanceP']."\" id='tdDate_Lieu_Naiss'></td>
 								<td><input type='text' name='numSS' value=\"".$res['numSS']."\" id='tdNumSS'></td>
 								<input type='hidden' name='patients' value='ok'>
@@ -103,7 +103,7 @@
 				$req->execute(array('idMed' => $idMed,
 									'id' => $id));
 
-				echo "<center><h2>Nouveau medecin referant pris en compte</h2></center>";
+				echo "<br><p id='text'>Nouveau medecin referant pris en compte</p>";
 				echo "<meta http-equiv='refresh' content='1; URL=./?patients=ok'></meta>";
 				
 			}
@@ -117,12 +117,12 @@
 					if ($res['idMed']!=NULL) {
 						$req1=$linkpdo->query("Select * from medecin where idMed='".$res['idMed']."'");
 						if($res1=$req1->fetch()) {
-							echo "<H1><center>Le medecin referant de ".$res['civiliteP']." ".$res['nomP']." ".$res['prenomP']." est le Docteur ".$res1['prenomM']." ".$res1['nomM']."</center></H1>
-								<center>Si vous voulez changer de medecin referant, veillez selectionner celui desirer dans la liste ci-dessous<center>
+							echo "<br>
+								<p id='text'>Le medecin referant de <B>".$res['civiliteP']." ".$res['nomP']." ".$res['prenomP']."</B> est le Docteur <B>".$res1['prenomM']." ".$res1['nomM']."</B></p>
+								<p id='text'>Si vous voulez changer de medecin referant, veillez selectionner celui desirer dans la liste ci-dessous</p>
 								<br>
-								<br> 
 								<form action='./?patients=ok' method='POST'>
-									<table align='center' id='tableau'>
+									<table id='tableauModif'>
 										<tr>
 											<td>Nom</td>
 											<td>Prenom</td>
@@ -147,9 +147,10 @@
 								<br>";
 						}
 					}else{
-						echo "<H1><center>Choisissez un medecin referant pour ".$res['civiliteP']." ".$res['nomP']." ".$res['prenomP']." </center></H1>
+						echo "<br>
+							<p id='text'>Choisissez un medecin referant pour <B>".$res['civiliteP']." ".$res['nomP']." ".$res['prenomP']."</B> </p>
 							<form action='./?patients=ok' method='POST'>
-								<table align='center' id='tableau'>
+								<table id='tableauModif'>
 									<tr>
 										<td>Nom</td>
 										<td>Prenom</td>
@@ -203,59 +204,64 @@
 							'dateNaissance'=>$dateNaissanceP, 
 							'lieuNaissance'=>$lieuNaissanceP, 
 							'numSS'=>$numSS));
-		echo "<center><H2>Contact ajouter a la base<br></H2><center>";
+		echo "<br><p id='titre'>Contact ajouter a la base<br></p>";
 		echo "<meta http-equiv='refresh' content='1; URL=./?patients=ok''></meta>";
 	}
 	?>
 	<br>
-	<H1><center>Nos Patients</center></H1>
+	<br>
+	<p id="titre">Nos Patients<p>
 	<table id="tableauPatient">
-		<tr id="premiereLigne">
-			<td>Civilit&eacute;</td>
-			<td>Nom</td>
-			<td>Prenom</td>
-			<td>Adresse</td>
-			<td>Code postal</td>
-			<td>Ville</td>
-			<td>Date de naissance</td>
-			<td>Lieu de naissance</td>
-			<td>Numero securit&eacute; social</td>
-		</tr>
-	<form action="./?patients=ok" method="POST"  id="ajoutPatient">
-		<tr>
-			<td> <select name="civilite" id="tdCivilite"><option value="M." selected="selected">M.</option><option value="Mme.">Mme.</option></select></td>					
-			<td> <input type="text" name="nom" id="tdNom_Prenom_Ville"></td>
-			<td> <input type="text" name="prenom" id="tdNom_Prenom_Ville"></td>
-			<td> <input type="text" name="adresse" id="tdadresse"></td>
-			<td> <input type="text" name="cp" id="tdCp"></td>
-			<td> <input type="text" name="ville" id="tdNom_Prenom_Ville"></td>
-			<td> <input type="date" name="dateNaissance" id="tdDate_Lieu_Naiss"></td>
-			<td> <input type="text" name="lieuNaissance" id="tdDate_Lieu_Naiss"></td>
-			<td> <input type="text" name="numSS" id="tdNumSS"></td>
-			<input type="hidden" name="patients" value="ok">
-			<input type="hidden" name="ajout">
-			<td colspan=3 style='text-align:center;'><input type="submit" value="Ajouter"></td>
-		</tr>
-	</form>
-		<?php
-		include ("./ConnexionBDD.php");
-		$req=$linkpdo->query('Select * from patient');
-		while ($res=$req->fetch()) {
-		echo "	<tr id='donnees'>
-					<td>".$res['civiliteP']."</td>
-					<td>".$res['nomP']."</td>
-					<td>".$res['prenomP']."</td>
-					<td>".$res['adresseP']."</td>
-					<td>".$res['cpP']."</td>
-					<td>".$res['villeP']."</td>
-					<td>".$res['dateNaissanceP']."</td>
-					<td>".$res['lieuNaissanceP']."</td>
-					<td>".$res['numSS']."</td>
-					<td style='text-align:center;'><a href='./?patients=ok&idPatient=".$res['idPatient']."&modif=ok'><IMG src='modifier.png' alt='Modifier ce patient'></a></td>
-					<td style='text-align:center;'><a href='./?patients=ok&idPatient=".$res['idPatient']."&suppr=ok'><IMG src='supprimer.png' alt='Supprimer ce patient'></a></td>
-					<td style='text-align:center;'><a href='./?patients=ok&idPatient=".$res['idPatient']."&medecinRef=ok'><IMG src='medecin_ajout.jpg' alt='Ajouter un medecin referant à ce patient'></a></td>				
-				</tr>";
-		}
-		?>
+		<thead id="enteteTab">
+			<tr>
+				<td>Civilit&eacute;</td>
+				<td>Nom</td>
+				<td>Prenom</td>
+				<td>Adresse</td>
+				<td>Code postal</td>
+				<td>Ville</td>
+				<td>Date de naissance</td>
+				<td>Lieu de naissance</td>
+				<td>Numero securit&eacute; social</td>
+			</tr>
+		<form action="./?patients=ok" method="POST"  id="ajoutPatient">
+			<tr>
+				<td> <select name="civilite" id="tdCivilite"><option value="M." selected="selected">M.</option><option value="Mme.">Mme.</option></select></td>					
+				<td> <input type="text" name="nom" id="tdNom_Prenom_Ville"></td>
+				<td> <input type="text" name="prenom" id="tdNom_Prenom_Ville"></td>
+				<td> <input type="text" name="adresse" id="tdadresse"></td>
+				<td> <input type="text" name="cp" id="tdCp"></td>
+				<td> <input type="text" name="ville" id="tdNom_Prenom_Ville"></td>
+				<td> <input type="date" name="dateNaissance" id="tdDate_Lieu_Naiss" class="date"></td>
+				<td> <input type="text" name="lieuNaissance" id="tdDate_Lieu_Naiss"></td>
+				<td> <input type="text" name="numSS" id="tdNumSS"></td>
+				<input type="hidden" name="patients" value="ok">
+				<input type="hidden" name="ajout">
+				<td colspan=3 style='text-align:center;'><input type="submit" value="Ajouter"></td>
+			</tr>
+		</form>
+		</thead>
+		<tbody id="donnees">
+			<?php
+			include ("./ConnexionBDD.php");
+			$req=$linkpdo->query('Select * from patient');
+			while ($res=$req->fetch()) {
+			echo "	<tr>
+						<td>".$res['civiliteP']."</td>
+						<td id='tdNom_Prenom_Ville'>".$res['nomP']."</td>
+						<td id='tdNom_Prenom_Ville'>".$res['prenomP']."</td>
+						<td id='tdadresse'>".$res['adresseP']."</td>
+						<td>".$res['cpP']."</td>
+						<td id='tdNom_Prenom_Ville'>".$res['villeP']."</td>
+						<td>".$res['dateNaissanceP']."</td>
+						<td>".$res['lieuNaissanceP']."</td>
+						<td>".$res['numSS']."</td>
+						<td style='text-align:center;'><a href='./?patients=ok&idPatient=".$res['idPatient']."&modif=ok'><IMG src='modifier.png' alt='Modifier ce patient'></a></td>
+						<td style='text-align:center;'><a href='./?patients=ok&idPatient=".$res['idPatient']."&suppr=ok'><IMG src='supprimer.png' alt='Supprimer ce patient'></a></td>
+						<td style='text-align:center;'><a href='./?patients=ok&idPatient=".$res['idPatient']."&medecinRef=ok'><IMG src='medecin_ajout.jpg' alt='Ajouter un medecin referant à ce patient'></a></td>				
+					</tr>";
+			}
+			?>
+		</tbody>
 	</table>
 </div>
