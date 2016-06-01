@@ -4,52 +4,26 @@
 *    rgba(25, 144, 206, 1)
 *    rgba(2, 184, 191, 1);
 *
-*
-*
 */
 
 html{
-  background-color: #E0E0E0;
-
+  background-color: rgba(2, 184, 191, 0.1);
+  overflow-Y:none
 }
 
 body{
-      color : #081038;
-      font-family : Arial, Helvetica, sans-serif;
-      font-size : 15px;
-      
-      scrollbar-3d-light-color : #000000;
-      scrollbar-arrow-color : #000000;
-      scrollbar-base-color : #888888;
-      scrollbar-dark-shadow-color : #000000;
-      scrollbar-face-color : #787878;
-      scrollbar-highlight-color : #000000;
-      scrollbar-shadow-color : #ffffff;
-
-}
-
-.container {
-    width: 1187px;
-    margin-top: 0px;
-    margin-right: auto;
-    margin-bottom: 0px;
-    margin-left: auto;
-    background-image:url("CM.jpg");
-    /*font: normal normal normal 15px/1.4em din-next-w01-light,din-next-w02-light,din-next-w10-light,sans-serif;
-    font-family: din-next-w01-light, din-next-w02-light, din-next-w10-light, sans-serif;*/
-}
-
-.pageInterne{
-   background-color: rgba(7, 188, 131, 0.5);
+  color : rgba(25, 144, 206, 1);
+  font-family : Arial, Helvetica, sans-serif;
+  font-size : 15px;
+  margin: 0px;
 }
 
 #header{
-    overflow: hidden;
-    margin: 15px 0 25px;
-    padding: 10px 10px 10px 10px;
-    display: block;
-    background-color: dimgrey;
-  }
+  width: 100%;
+  overflow: hidden;
+  display: block;
+  background-color: white;
+}
 
 #logoAccueil{
   display: block;
@@ -57,17 +31,32 @@ body{
 }
 
 #logoAccueil img{
+  padding-left: 200px; 
   width: 400px;
-  height: 110px;
+  height: 190px;
 }
 
 #connexion{
+  padding-top: 20px;
+  display: flex;
+  flex-direction: column;
+  margin-right: 200px;
+  /*background-color: rgba(25, 144, 206, 1);*/
+  width: 650px;
+  height: 97px;
   float: right;
-  margin-top: 5px;
+}
 
+#formulaireCo{
+  margin-left: 190px; 
 }
 
 #menu{
+  display: block;
+  margin-right: 200px;
+  /*background-color: rgba(7, 188, 131, 1);*/
+  width: 650px;
+  height: 80px;
   float: right;
 }
 
@@ -87,8 +76,8 @@ body{
 }
 
 #menu nav li a {
-  padding: 15px 15px ;
-  background: #2673FF ;
+  padding: 20px 35px ;
+  background: rgba(7, 188, 131, 1);
   color: #fff ;
   border: 1px solid white ;
   font: 1em "Trebuchet MS",Arial,sans-serif ;
@@ -98,6 +87,45 @@ body{
 }
 
 #menu nav li a:hover, #menu nav li a:focus, #menu nav li a:active {
-  background: black ;
+  background: rgba(25, 144, 206, 1) ;
   /*text-decoration: underline ;*/
+}
+
+#BandeColor{
+  background-color: rgba(25, 144, 206, 1);
+  height: 10px;
+  margin: 0px;
+  border: inherit;
+}
+
+
+.container {
+  width: 1200px;
+  height: 500px;
+  margin-top: 0px;
+  margin-right: auto;
+  margin-bottom: 0px;
+  margin-left: auto;
+  background-image:url("CM.jpg");
+  /*font: normal normal normal 15px/1.4em din-next-w01-light,din-next-w02-light,din-next-w10-light,sans-serif;
+  font-family: din-next-w01-light, din-next-w02-light, din-next-w10-light, sans-serif;*/
+}
+
+.pageInterne{
+   background-color: rgba(7, 188, 131, 0.5);
+}
+
+
+
+footer{
+  background-color: rgba(7, 188, 131, 1);
+}
+
+footer p{
+  padding-top: 10px;
+  height: 50px;
+  text-align: center;
+  color: white;
+  margin-bottom: 0px;
+  bottom:0px;
 }

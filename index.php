@@ -8,16 +8,18 @@
 	<head>	
 		<title>Cabinet Medical</title>
 		<link rel="stylesheet" type="text/css" href="style.css" media="all"/>
+		<link rel="stylesheet" type="text/css" href="Patient.css" media="all"/>
+		<link rel="stylesheet" type="text/css" href="Medecin.css" media="all"/>
+		<link rel="stylesheet" type="text/css" href="Stat.css" media="all"/>
 		<link rel="stylesheet" type="text/css" href="rdv.css" media="all"/>
 	</head>
 	<body>
-		<div class="container">
 			<header id="header">
 					<div id="logoAccueil">
-						<a href="index.php"><img src="cabinetMedical2.jpg" alt="CabMed"></a>
+						<a href="index.php"><img src="logoSite.png" alt="CabMed"></a>
 					</div>
 					<div id="connexion">
-						<form method="POST" action="./">
+						<form method="POST" action="./" id="formulaireCo">
 							<table>
 								<tr>
 									<td><input type="text" placeholder="Identifiant" name="login"<?php if(isset($_SESSION["login"])){ echo 'value="'.$_SESSION["login"].'"';} ?>></td>
@@ -39,6 +41,8 @@
 					<?php } ?>
 
 			</header>
+			<hr id="BandeColor">
+			<div class="container">
 			<?php
 				if(isset($_POST["conn"])){
 						include("connexion.php");
@@ -47,7 +51,7 @@
 					if(isset($_GET["consult"]) || isset($_POST["consult"])){
 						include("rdv.php");
 					}
-					elseif (isset($_GET["patients"])) {
+					elseif (isset($_GET["patients"]) || isset($_POST["patients"])) {
 						include("Patient.php");
 					}
 					elseif (isset($_GET["medecins"])) {
@@ -65,5 +69,11 @@
 				}
 			?>
 		</div>
+		<footer>
+			<p>
+				Nous contacter : antoineperot23@gmail.com / fannydaudies@gmail.com
+				<br>2016, Copyright A.perot & F.daudies
+			</p>	
+		</footer>
 	</body>
 </html>
