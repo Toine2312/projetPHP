@@ -7,6 +7,7 @@
 <html>
 	<head>	
 		<title>Cabinet Medical</title>
+		<link rel="icon" type="image/png" href="./logoPetitMedical.ico" />
 		<link rel="stylesheet" type="text/css" href="style.css" media="all"/>
 		<link rel="stylesheet" type="text/css" href="Patient.css" media="all"/>
 		<link rel="stylesheet" type="text/css" href="Medecin.css" media="all"/>
