@@ -15,7 +15,7 @@
 	margin-top: 1%;
 	margin-left: 37%;
 	margin-right: 36%;
-	padding: 2px;
+	padding: 5px;
 	color: white;
     text-align: center;
     border-collapse: collapse;
@@ -35,7 +35,7 @@
 }
 
 #tdCivilite {
-	width: 55px;
+	width: 68px;
 }
 
 #tdNom_Prenom{

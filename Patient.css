@@ -54,7 +54,8 @@
 }
 
 #tdCivilite {
-	width: 55px;
+	width: 68px;
+	text-align: left;
 }
 
 #tdNom_Prenom_Ville{
@@ -63,11 +64,11 @@
 }
 
 #tdCp{
-	width: 80px;
+	width: 100px;
 }
 
 #tdDate_Lieu_Naiss{
-	width:130px;
+	width:143px;
 }
 
 #tdadresse{
@@ -76,5 +77,5 @@
 }
 
 #tdNumSS{
-	width: 160px;
+	width: 177px;
 }

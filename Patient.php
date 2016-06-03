@@ -214,15 +214,15 @@
 	<table id="tableauPatient">
 		<thead id="enteteTab">
 			<tr>
-				<td>Civilit&eacute;</td>
-				<td>Nom</td>
-				<td>Prenom</td>
-				<td>Adresse</td>
-				<td>Code postal</td>
-				<td>Ville</td>
-				<td>Date de naissance</td>
-				<td>Lieu de naissance</td>
-				<td>Numero securit&eacute; social</td>
+				<td>Civilit&eacute; <a href='./?patients=ok&filtreCivi=ok'><IMG src='filtre.png' alt='filtrerChamp'></a></td>
+				<td>Nom <a href='./?patients=ok&filtreNom=ok'><IMG src='filtre.png' alt='filtrerChamp'></a></td>
+				<td>Prenom <a href='./?patients=ok&filtrePrenom=ok'><IMG src='filtre.png' alt='filtrerChamp'></a></td>
+				<td>Adresse <a href='./?patients=ok&filtreAdresse=ok'><IMG src='filtre.png' alt='filtrerChamp'></a></td>
+				<td>Code postal <a href='./?patients=ok&filtreCp=ok'><IMG src='filtre.png' alt='filtrerChamp'></a></td>
+				<td>Ville <a href='./?patients=ok&filtreVille=ok'><IMG src='filtre.png' alt='filtrerChamp'></a></td>
+				<td>Date de naissance <a href='./?patients=ok&filtreDate=ok'><IMG src='filtre.png' alt='filtrerChamp'></a></td>
+				<td>Lieu de naissance <a href='./?patients=ok&filtreLieu=ok'><IMG src='filtre.png' alt='filtrerChamp'></a></td>
+				<td>Numero securit&eacute; social <a href='./?patients=ok&filtreNSS=ok'><IMG src='filtre.png' alt='filtrerChamp'></a></td>
 			</tr>
 		<form action="./?patients=ok" method="POST"  id="ajoutPatient">
 			<tr>
@@ -244,10 +244,11 @@
 		<tbody id="donnees">
 			<?php
 			include ("./ConnexionBDD.php");
-			$req=$linkpdo->query('Select * from patient');
-			while ($res=$req->fetch()) {
-			echo "	<tr>
-						<td>".$res['civiliteP']."</td>
+			if (isset($_GET['filtreCivi'])) {
+				$req=$linkpdo->query('Select * from patient order by civiliteP');
+				while ($res=$req->fetch()) {
+				echo "	<tr>
+						<td Id='tdCivilite'>".$res['civiliteP']."</td>
 						<td id='tdNom_Prenom_Ville'>".$res['nomP']."</td>
 						<td id='tdNom_Prenom_Ville'>".$res['prenomP']."</td>
 						<td id='tdadresse'>".$res['adresseP']."</td>
@@ -259,7 +260,179 @@
 						<td style='text-align:center;'><a href='./?patients=ok&idPatient=".$res['idPatient']."&modif=ok'><IMG src='modifier.png' alt='Modifier ce patient'></a></td>
 						<td style='text-align:center;'><a href='./?patients=ok&idPatient=".$res['idPatient']."&suppr=ok'><IMG src='supprimer.png' alt='Supprimer ce patient'></a></td>
 						<td style='text-align:center;'><a href='./?patients=ok&idPatient=".$res['idPatient']."&medecinRef=ok'><IMG src='medecin_ajout.jpg' alt='Ajouter un medecin referant à ce patient'></a></td>				
-					</tr>";
+						</tr>";
+				}
+			}
+			elseif (isset($_GET['filtreNom'])) {
+				$req=$linkpdo->query('Select * from patient order by nomP DESC');
+				while ($res=$req->fetch()) {
+				echo "	<tr>
+						<td Id='tdCivilite'>".$res['civiliteP']."</td>
+						<td id='tdNom_Prenom_Ville'>".$res['nomP']."</td>
+						<td id='tdNom_Prenom_Ville'>".$res['prenomP']."</td>
+						<td id='tdadresse'>".$res['adresseP']."</td>
+						<td>".$res['cpP']."</td>
+						<td id='tdNom_Prenom_Ville'>".$res['villeP']."</td>
+						<td>".$res['dateNaissanceP']."</td>
+						<td>".$res['lieuNaissanceP']."</td>
+						<td>".$res['numSS']."</td>
+						<td style='text-align:center;'><a href='./?patients=ok&idPatient=".$res['idPatient']."&modif=ok'><IMG src='modifier.png' alt='Modifier ce patient'></a></td>
+						<td style='text-align:center;'><a href='./?patients=ok&idPatient=".$res['idPatient']."&suppr=ok'><IMG src='supprimer.png' alt='Supprimer ce patient'></a></td>
+						<td style='text-align:center;'><a href='./?patients=ok&idPatient=".$res['idPatient']."&medecinRef=ok'><IMG src='medecin_ajout.jpg' alt='Ajouter un medecin referant à ce patient'></a></td>				
+						</tr>";
+				}
+			}
+			elseif (isset($_GET['filtrePrenom'])) {
+				$req=$linkpdo->query('Select * from patient order by prenomP');
+				while ($res=$req->fetch()) {
+				echo "	<tr>
+						<td Id='tdCivilite'>".$res['civiliteP']."</td>
+						<td id='tdNom_Prenom_Ville'>".$res['nomP']."</td>
+						<td id='tdNom_Prenom_Ville'>".$res['prenomP']."</td>
+						<td id='tdadresse'>".$res['adresseP']."</td>
+						<td>".$res['cpP']."</td>
+						<td id='tdNom_Prenom_Ville'>".$res['villeP']."</td>
+						<td>".$res['dateNaissanceP']."</td>
+						<td>".$res['lieuNaissanceP']."</td>
+						<td>".$res['numSS']."</td>
+						<td style='text-align:center;'><a href='./?patients=ok&idPatient=".$res['idPatient']."&modif=ok'><IMG src='modifier.png' alt='Modifier ce patient'></a></td>
+						<td style='text-align:center;'><a href='./?patients=ok&idPatient=".$res['idPatient']."&suppr=ok'><IMG src='supprimer.png' alt='Supprimer ce patient'></a></td>
+						<td style='text-align:center;'><a href='./?patients=ok&idPatient=".$res['idPatient']."&medecinRef=ok'><IMG src='medecin_ajout.jpg' alt='Ajouter un medecin referant à ce patient'></a></td>				
+						</tr>";
+				}
+			}
+			elseif (isset($_GET['filtreAdresse'])) {
+				$req=$linkpdo->query('Select * from patient order by adresseP');
+				while ($res=$req->fetch()) {
+				echo "	<tr>
+						<td Id='tdCivilite'>".$res['civiliteP']."</td>
+						<td id='tdNom_Prenom_Ville'>".$res['nomP']."</td>
+						<td id='tdNom_Prenom_Ville'>".$res['prenomP']."</td>
+						<td id='tdadresse'>".$res['adresseP']."</td>
+						<td>".$res['cpP']."</td>
+						<td id='tdNom_Prenom_Ville'>".$res['villeP']."</td>
+						<td>".$res['dateNaissanceP']."</td>
+						<td>".$res['lieuNaissanceP']."</td>
+						<td>".$res['numSS']."</td>
+						<td style='text-align:center;'><a href='./?patients=ok&idPatient=".$res['idPatient']."&modif=ok'><IMG src='modifier.png' alt='Modifier ce patient'></a></td>
+						<td style='text-align:center;'><a href='./?patients=ok&idPatient=".$res['idPatient']."&suppr=ok'><IMG src='supprimer.png' alt='Supprimer ce patient'></a></td>
+						<td style='text-align:center;'><a href='./?patients=ok&idPatient=".$res['idPatient']."&medecinRef=ok'><IMG src='medecin_ajout.jpg' alt='Ajouter un medecin referant à ce patient'></a></td>				
+						</tr>";
+				}
+			}
+			elseif (isset($_GET['filtreCp'])) {
+				$req=$linkpdo->query('Select * from patient order by cpP');
+				while ($res=$req->fetch()) {
+				echo "	<tr>
+						<td Id='tdCivilite'>".$res['civiliteP']."</td>
+						<td id='tdNom_Prenom_Ville'>".$res['nomP']."</td>
+						<td id='tdNom_Prenom_Ville'>".$res['prenomP']."</td>
+						<td id='tdadresse'>".$res['adresseP']."</td>
+						<td>".$res['cpP']."</td>
+						<td id='tdNom_Prenom_Ville'>".$res['villeP']."</td>
+						<td>".$res['dateNaissanceP']."</td>
+						<td>".$res['lieuNaissanceP']."</td>
+						<td>".$res['numSS']."</td>
+						<td style='text-align:center;'><a href='./?patients=ok&idPatient=".$res['idPatient']."&modif=ok'><IMG src='modifier.png' alt='Modifier ce patient'></a></td>
+						<td style='text-align:center;'><a href='./?patients=ok&idPatient=".$res['idPatient']."&suppr=ok'><IMG src='supprimer.png' alt='Supprimer ce patient'></a></td>
+						<td style='text-align:center;'><a href='./?patients=ok&idPatient=".$res['idPatient']."&medecinRef=ok'><IMG src='medecin_ajout.jpg' alt='Ajouter un medecin referant à ce patient'></a></td>				
+						</tr>";
+				}
+			}
+			elseif (isset($_GET['filtreVille'])) {
+				$req=$linkpdo->query('Select * from patient order by villeP');
+				while ($res=$req->fetch()) {
+				echo "	<tr>
+						<td Id='tdCivilite'>".$res['civiliteP']."</td>
+						<td id='tdNom_Prenom_Ville'>".$res['nomP']."</td>
+						<td id='tdNom_Prenom_Ville'>".$res['prenomP']."</td>
+						<td id='tdadresse'>".$res['adresseP']."</td>
+						<td>".$res['cpP']."</td>
+						<td id='tdNom_Prenom_Ville'>".$res['villeP']."</td>
+						<td>".$res['dateNaissanceP']."</td>
+						<td>".$res['lieuNaissanceP']."</td>
+						<td>".$res['numSS']."</td>
+						<td style='text-align:center;'><a href='./?patients=ok&idPatient=".$res['idPatient']."&modif=ok'><IMG src='modifier.png' alt='Modifier ce patient'></a></td>
+						<td style='text-align:center;'><a href='./?patients=ok&idPatient=".$res['idPatient']."&suppr=ok'><IMG src='supprimer.png' alt='Supprimer ce patient'></a></td>
+						<td style='text-align:center;'><a href='./?patients=ok&idPatient=".$res['idPatient']."&medecinRef=ok'><IMG src='medecin_ajout.jpg' alt='Ajouter un medecin referant à ce patient'></a></td>				
+						</tr>";
+				}
+			}
+			elseif (isset($_GET['filtreDate'])) {
+				$req=$linkpdo->query('Select * from patient order by dateNaissanceP');
+				while ($res=$req->fetch()) {
+				echo "	<tr>
+						<td Id='tdCivilite'>".$res['civiliteP']."</td>
+						<td id='tdNom_Prenom_Ville'>".$res['nomP']."</td>
+						<td id='tdNom_Prenom_Ville'>".$res['prenomP']."</td>
+						<td id='tdadresse'>".$res['adresseP']."</td>
+						<td>".$res['cpP']."</td>
+						<td id='tdNom_Prenom_Ville'>".$res['villeP']."</td>
+						<td>".$res['dateNaissanceP']."</td>
+						<td>".$res['lieuNaissanceP']."</td>
+						<td>".$res['numSS']."</td>
+						<td style='text-align:center;'><a href='./?patients=ok&idPatient=".$res['idPatient']."&modif=ok'><IMG src='modifier.png' alt='Modifier ce patient'></a></td>
+						<td style='text-align:center;'><a href='./?patients=ok&idPatient=".$res['idPatient']."&suppr=ok'><IMG src='supprimer.png' alt='Supprimer ce patient'></a></td>
+						<td style='text-align:center;'><a href='./?patients=ok&idPatient=".$res['idPatient']."&medecinRef=ok'><IMG src='medecin_ajout.jpg' alt='Ajouter un medecin referant à ce patient'></a></td>				
+						</tr>";
+				}
+			}
+			elseif (isset($_GET['filtreLieu'])) {
+				$req=$linkpdo->query('Select * from patient order by lieuNaissanceP');
+				while ($res=$req->fetch()) {
+				echo "	<tr>
+						<td Id='tdCivilite'>".$res['civiliteP']."</td>
+						<td id='tdNom_Prenom_Ville'>".$res['nomP']."</td>
+						<td id='tdNom_Prenom_Ville'>".$res['prenomP']."</td>
+						<td id='tdadresse'>".$res['adresseP']."</td>
+						<td>".$res['cpP']."</td>
+						<td id='tdNom_Prenom_Ville'>".$res['villeP']."</td>
+						<td>".$res['dateNaissanceP']."</td>
+						<td>".$res['lieuNaissanceP']."</td>
+						<td>".$res['numSS']."</td>
+						<td style='text-align:center;'><a href='./?patients=ok&idPatient=".$res['idPatient']."&modif=ok'><IMG src='modifier.png' alt='Modifier ce patient'></a></td>
+						<td style='text-align:center;'><a href='./?patients=ok&idPatient=".$res['idPatient']."&suppr=ok'><IMG src='supprimer.png' alt='Supprimer ce patient'></a></td>
+						<td style='text-align:center;'><a href='./?patients=ok&idPatient=".$res['idPatient']."&medecinRef=ok'><IMG src='medecin_ajout.jpg' alt='Ajouter un medecin referant à ce patient'></a></td>				
+						</tr>";
+				}
+			}
+			elseif (isset($_GET['filtreNSS'])) {
+				$req=$linkpdo->query('Select * from patient order by numSS');
+				while ($res=$req->fetch()) {
+				echo "	<tr>
+						<td Id='tdCivilite'>".$res['civiliteP']."</td>
+						<td id='tdNom_Prenom_Ville'>".$res['nomP']."</td>
+						<td id='tdNom_Prenom_Ville'>".$res['prenomP']."</td>
+						<td id='tdadresse'>".$res['adresseP']."</td>
+						<td>".$res['cpP']."</td>
+						<td id='tdNom_Prenom_Ville'>".$res['villeP']."</td>
+						<td>".$res['dateNaissanceP']."</td>
+						<td>".$res['lieuNaissanceP']."</td>
+						<td>".$res['numSS']."</td>
+						<td style='text-align:center;'><a href='./?patients=ok&idPatient=".$res['idPatient']."&modif=ok'><IMG src='modifier.png' alt='Modifier ce patient'></a></td>
+						<td style='text-align:center;'><a href='./?patients=ok&idPatient=".$res['idPatient']."&suppr=ok'><IMG src='supprimer.png' alt='Supprimer ce patient'></a></td>
+						<td style='text-align:center;'><a href='./?patients=ok&idPatient=".$res['idPatient']."&medecinRef=ok'><IMG src='medecin_ajout.jpg' alt='Ajouter un medecin referant à ce patient'></a></td>				
+						</tr>";
+				}
+			}
+			else{
+				$req=$linkpdo->query('Select * from patient order by nomP');
+				while ($res=$req->fetch()) {
+				echo "	<tr>
+							<td Id='tdCivilite'>".$res['civiliteP']."</td>
+							<td id='tdNom_Prenom_Ville'>".$res['nomP']."</td>
+							<td id='tdNom_Prenom_Ville'>".$res['prenomP']."</td>
+							<td id='tdadresse'>".$res['adresseP']."</td>
+							<td>".$res['cpP']."</td>
+							<td id='tdNom_Prenom_Ville'>".$res['villeP']."</td>
+							<td>".$res['dateNaissanceP']."</td>
+							<td>".$res['lieuNaissanceP']."</td>
+							<td>".$res['numSS']."</td>
+							<td style='text-align:center;'><a href='./?patients=ok&idPatient=".$res['idPatient']."&modif=ok'><IMG src='modifier.png' alt='Modifier ce patient'></a></td>
+							<td style='text-align:center;'><a href='./?patients=ok&idPatient=".$res['idPatient']."&suppr=ok'><IMG src='supprimer.png' alt='Supprimer ce patient'></a></td>
+							<td style='text-align:center;'><a href='./?patients=ok&idPatient=".$res['idPatient']."&medecinRef=ok'><IMG src='medecin_ajout.jpg' alt='Ajouter un medecin referant à ce patient'></a></td>				
+						</tr>";
+				}
 			}
 			?>
 		</tbody>

@@ -67,9 +67,16 @@
 
 #formAjout fieldset table{
 	padding: 10px;
+	display: block;
+	margin-left: 10%;
 	
 }
 
 #formAjout fieldset table th{
 	text-align: left;
+}
+
+#formAjout fieldset table tr td{
+	text-align: left;
+	padding: 5px;
 }

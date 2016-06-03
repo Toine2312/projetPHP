@@ -1,5 +1,3 @@
-<!DOCTYPE>
-
 	<div class="pageInterne">
 		<h1><center>Statistique du cabinet</center></h1>
 		<br>
