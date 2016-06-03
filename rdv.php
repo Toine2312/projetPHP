@@ -3,15 +3,19 @@
 	<br>
 	<p id="titre">Planning</p>
 	<?php
-		//include ("./ConnexionBDD.php");
 		if(isset($_POST["ajout"])){
-			echo "ok".$_POST["patientSelect"];
-			$req1 = $linkpdo -> prepare ('INSERT into rdv (idPatient, idMed, dateRdv, heure, duree) values (:idPatient, :idMed, :dateRdv, :heure, :duree)');
-			$req1 -> execute(array(	'idPatient'=>$_POST["patientSelect"], 
+			if(verificationRDV($_POST["heure"], $_POST["duree"], $_POST["medecin"], $_POST["dateRdv"]) < 0){
+				$req1 = $linkpdo -> prepare ('INSERT into rdv (idPatient, idMed, dateRdv, heure, duree) values (:idPatient, :idMed, :dateRdv, :heure, :duree)');
+				$req1 -> execute(array(	'idPatient'=>$_POST["patientSelect"], 
 									'idMed'=>$_POST["medecin"], 
 									'dateRdv'=>$_POST["dateRdv"], 
 									'heure'=>$_POST["heure"], 
 									'duree'=>$_POST["duree"]));
+			}
+			else{
+				echo "le docteur est deja en rdv"; 
+			}
+			
 		}
 		if(isset($_POST["idRdvModif"])){
 			if(isset($_POST["validerModif".$_POST["idRdvModif"]])){
@@ -130,10 +134,10 @@
 		<?php 
 			$i=0;
 			if(isset($_POST["triMedecin"])){
-				$res3 = $linkpdo->query('SELECT * FROM rdv WHERE '.$_POST["triMedecin"].' ORDER BY dateRdv , heure ASC'); 
+				$res3 = $linkpdo->query('SELECT * FROM rdv WHERE '.$_POST["triMedecin"].' ORDER BY dateRdv DESC, heure DESC'); 
 			}
 			else{
-				$res3 = $linkpdo->query('SELECT * FROM rdv ORDER BY dateRdv , heure DESC '); 
+				$res3 = $linkpdo->query('SELECT * FROM rdv  ORDER BY dateRdv DESC, heure DESC'); 
 			}
 			while($data = $res3->fetch()) { 
 		?>
@@ -156,4 +160,22 @@
 		   	$res->closeCursor(); 
 		?>
 	</div>
+	<?php
+	function verificationRDV($heureDebutNV, $duree, $med, $jour){
+		include("ConnexionBDD.php");
+		$res = $linkpdo->query('SELECT * FROM rdv WHERE idMed='.$med.' AND dateRdv='.$jour.' ORDER BY heure DESC');
+		while($data = $res->fetch()) {
+			$heureFinRDV = $data["heure"] + $data["duree"];
+			$testRDVAvant = $data["heure"] - $data["duree"];
+			if($heureDebutNV >= $data["heure"] && $heureDebutNV < $heureFinRDV){
+				return 0;
+			}elseif($heureDebutNV < $data["heure"] && $heureDebutNV >= $testRDVAvant){	
+				return  0;
+			}
+		}
+		return 1;
+
+	}
+?>
 </div>	
+
