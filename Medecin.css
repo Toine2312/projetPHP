@@ -1,18 +1,37 @@
-h1{
-    color: dimgrey;
-}
-
-#tableauMed{
-	color: dimgrey;
-    text-align: center;
-}
-
-#premiereLigne{
+#titremed{
+	font-size: 40px;
+	color:white;
 	font-weight: bold;
 }
 
-#donnees{
-	font-style: oblique;
+#textmed{
+	font-size: 20px;
+	color:white;
+}
+
+#tableauMed{
+	background-color: rgba(27, 20, 120, 0.9);
+	display: block;
+	margin-top: 1%;
+	margin-left: 37%;
+	margin-right: 36%;
+	padding: 2px;
+	color: white;
+    text-align: center;
+    border-collapse: collapse;
+}
+
+#tableauMed tr td{
+	padding: 3px;
+}
+
+#donneesMed tr td{
+	padding: 3px;
+	font-style: normal;
+	border: 1px solid white;
+	border-left: none;
+    border-right: none;
+    border-top: none;
 }
 
 #tdCivilite {

@@ -7,7 +7,7 @@
 
 				$req = $linkpdo->prepare('DELETE FROM medecin WHERE idMed = :id');
 				$req->execute(array('id' => $id)); 
-				echo "<center><h2>Contact supprimé avec succes !</h2></center>";
+				echo "<br><p id='textmed'>Contact supprimé avec succes !</p>";
 				echo "<meta http-equiv='refresh' content='1; URL=./?medecins=ok''></meta>";
 		}
 	?>
@@ -28,7 +28,7 @@
 								'nvPrenom' => $prenom,
 								'id' => $id));
 
-			echo "<center><h2>Medecin modifié avec succes !</h2></center>";
+			echo "<br><p id='textmed'>Medecin modifié avec succes !</p>";
 			echo "<meta http-equiv='refresh' content='1; URL=./?medecins=ok'></meta>";
 			
 		}
@@ -39,9 +39,9 @@
 			include"./ConnexionBDD.php";
 			$req=$linkpdo->query("Select * from medecin where idMed='$id'");
 			if($res=$req->fetch()) {
-				echo "<H1><center>Modifier ce medecin ?</center></H1>
+				echo "<br><p id='textmed'>Modifier ce medecin ?</p>
 						<form action='./?medecins=ok' method='POST'>
-							<table align='center'>
+							<table id='tableauMed'>
 								<tr>
 									<td>Civilit&eacute;</td>
 									<td>Nom</td>
@@ -80,40 +80,45 @@
 			$req -> execute(array('civiliteM'=>$civiliteM, 
 								'nom'=>$nom, 
 								'prenom'=>$prenom));
-			echo "<center><H2>Medecin ajouter a la base<br></H2><center>";
+			echo "<br><p id='textmed'>Medecin ajouter a la base<br></p>";
 			echo "<meta http-equiv='refresh' content='1; URL=./?medecins=ok''></meta>";
 		}
 	?>
 	<br>
-	<H1><center>Nos M&eacute;decins</center></H1>
-	<table id="tableauMed" align="center">
-		<tr id="premiereLigne">
-			<td>Civilit&eacute;</td>
-			<td>Nom</td>
-			<td>Prenom</td>
-		</tr>
-	<form action="./?medecins=ok" method="POST"  id="ajoutMedecin">
-		<tr>
-			<td> <select name="civilite" id="tdCivilite"><option value="M." selected="selected">M.</option><option value="Mme.">Mme.</option></select></td>
-			<td> <input type="text" name="nom" id="tdNom_Prenom"></td>
-			<td> <input type="text" name="prenom" id="tdNom_Prenom"></td>
-			<input type='hidden' name='medecins' value='ok'>
-			<input type="hidden" name="ajout">
-			<td colspan=2 style='text-align:center;'><input type="submit" value="Ajouter"></td>
-		</tr>
-	</form>
-		<?php
-		include ("./ConnexionBDD.php");
-		$req=$linkpdo->query('Select * from medecin');
-		while ($res=$req->fetch()) {
-			echo "	<tr id='donnees' >
-						<td>".$res['civiliteM']."</td>
-						<td>".$res['nomM']."</td>
-						<td>".$res['prenomM']."</td>
-						<td style='text-align:center;'><a href='./?medecins=ok&idMed=".$res['idMed']."&modif=ok'><IMG src='modifier.png' alt='Modifier ce contact'></a></td>
-						<td style='text-align:center;'><a href='./?medecins=ok&idMed=".$res['idMed']."&suppr=ok'><IMG src='supprimer.png' alt='Supprimer ce contact'></a></td>
-					</tr>";
-		}
-		?>
+	<br>
+	<p id="titremed">Nos M&eacute;decins</p>
+	<table id="tableauMed">
+		<thead id="premiereLigne">
+			<tr>
+				<td>Civilit&eacute;</td>
+				<td>Nom</td>
+				<td>Prenom</td>
+			</tr>
+		<form action="./?medecins=ok" method="POST"  id="ajoutMedecin">
+			<tr>
+				<td> <select name="civilite" id="tdCivilite"><option value="M." selected="selected">M.</option><option value="Mme.">Mme.</option></select></td>
+				<td> <input type="text" name="nom" id="tdNom_Prenom"></td>
+				<td> <input type="text" name="prenom" id="tdNom_Prenom"></td>
+				<input type='hidden' name='medecins' value='ok'>
+				<input type="hidden" name="ajout">
+				<td colspan=2 style='text-align:center;'><input type="submit" value="Ajouter"></td>
+			</tr>
+		</form>
+		</thead>
+		<tbody id="donneesMed">
+			<?php
+			include ("./ConnexionBDD.php");
+			$req=$linkpdo->query('Select * from medecin');
+			while ($res=$req->fetch()) {
+				echo "	<tr id='donnees' >
+							<td>".$res['civiliteM']."</td>
+							<td>".$res['nomM']."</td>
+							<td>".$res['prenomM']."</td>
+							<td style='text-align:center;'><a href='./?medecins=ok&idMed=".$res['idMed']."&modif=ok'><IMG src='modifier.png' alt='Modifier ce contact'></a></td>
+							<td style='text-align:center;'><a href='./?medecins=ok&idMed=".$res['idMed']."&suppr=ok'><IMG src='supprimer.png' alt='Supprimer ce contact'></a></td>
+						</tr>";
+			}
+			?>
+		</tbody>
 	</table>
 </div>

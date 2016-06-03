@@ -1,18 +1,30 @@
+#titre{
+	font-size: 40px;
+	color:white;
+	font-weight: bold;
+}
+
 .btn_modifier{
 	background-image:url("modifier.png");
+	width: 16px;
 
 }
 
 .btn_validerModif{
 	background-image:url("validerModif.png");
+	width: 16px;
 }
 
 .btn_supprimer{
 	background-image:url("supprimer.png");
+	width: 16px;
 }
 
 #listeRDV{
-	background-color: rgba(7, 188, 131, 0.5);
+	color: white;
+	margin-top: 20px;
+	padding: 20px;
+	background-color: rgba(27, 20, 120, 0.9);;
 }
 
 #listeRDV th{
@@ -40,6 +52,24 @@
 }
 
 #formAjout{
+	color: white;
+	margin: 40px;
+	padding: 20px;
+	background-color: rgba(27, 20, 120, 0.9);;
 	width: 300px;
 	float: left;
+}
+
+#formAjout fieldset legend{
+	padding-left: 10px;
+	padding-right: 10px;
+}
+
+#formAjout fieldset table{
+	padding: 10px;
+	
+}
+
+#formAjout fieldset table th{
+	text-align: left;
 }

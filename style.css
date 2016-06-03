@@ -1,8 +1,8 @@
 /*Couleur du site 
 *
-*    background-color: rgba(7, 188, 131, 1)
-*    rgba(25, 144, 206, 1)
-*    rgba(2, 184, 191, 1);
+*    background-color: rgba(7, 188, 131, 1) vert
+*    rgba(25, 144, 206, 1) bleu
+*    rgba(2, 184, 191, 1) bleuClair; rgba(27, 20, 120, 1) bleu foncé
 *
 */
 *{
@@ -12,6 +12,7 @@
 
 html{
   background-color: rgba(2, 184, 191, 0.1);
+  min-width: 1300px;
 }
 
 body{
@@ -105,7 +106,7 @@ header{
 
 .container {
   width: 80%;
-  height: 490px;
+  min-height: 508px;
   margin-top: 0px;
   margin-right: auto;
   margin-bottom: 0px;
@@ -116,14 +117,17 @@ header{
 }
 
 .pageInterne{
-   background-color: rgba(7, 188, 131, 0.5);
+  color: white;
+  height: 100%;
+  min-height: 508px;
+  background-color: rgba(25, 144, 206, 0.4);
+  text-align: center;
 }
 
 
 
 footer{
-  background-color: rgba(7, 188, 131, 1);
-  position:absolute;
+  background-color: rgba(25, 144, 206, 1);
   width:100%;
   bottom:0;
   padding-top: 10px;
