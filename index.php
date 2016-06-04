@@ -34,7 +34,7 @@
 						<?php if(isset($_SESSION["login"])){ ?>
 						<div id ="menu">
 							<nav>
-								<li><a href="?consult=ok">CONSULTATIONS</a></li>
+								<?php echo "<li><a href='?consult=ok&mois=".date("n")."'>CONSULTATIONS</a></li>"?>
 								<li><a href="?patients=ok">PATIENTS</a></li>
 								<li><a href="?medecins=ok">MEDECINS</a></li>
 								<li><a href="?statistiques=ok">STATISTIQUES</a></li>

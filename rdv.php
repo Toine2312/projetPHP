@@ -45,7 +45,7 @@
 
 				<tr>
 					<th>Patients</th>
-					<form name="validP" method="POST" action="./?consult=ok">
+					<form name="validP" method="POST" action="./?consult=ok&mois=<?php echo date('n')?>">
 					<td>
 						<select name="patient" onchange="this.form.submit()"> 
 							<?php 
@@ -68,7 +68,7 @@
 				</form>
 				<tr>
 					<th>Medecins</th>
-				<form name="validP" method="POST" action="./?consult=ok">
+				<form name="validP" method="POST" action="./?consult=ok&mois=<?php echo date('n')?>">
 					<td>
 						<select name="medecin">
 							<?php 
@@ -112,11 +112,12 @@
 			</table>
 		</fieldset>
 	</div>
+	<?php include("calendrier.php") ?>
 	<div id="consultations">
 		<br><center>
 		<table id="listeRDV">
 		<tr ><th colspan=3>Liste des RDV de : </th>
-			<th colspan=2><form  method="POST" action="./?consult=ok">
+			<th colspan=2><form  method="POST" action="./?consult=ok&mois=<?php echo date('n')?>">
 				<select name="triMedecin"  onchange="this.form.submit()">
 					<option value="1">Tout le monde</option>
 					<?php
@@ -146,7 +147,7 @@
 			while($data = $res3->fetch()) { 
 		?>
 		 		<tr> 
-					<form action='./?consult=ok' method='POST' id=".$i.">
+					<form action='./?consult=ok&mois=<?php echo date('n')?>' method='POST' id=".$i.">
 						<input type='hidden' name='idRdvModif' <?php echo "value='".$data['idRdv']."'"?>>
 						<td><input type = 'date' class="date" name='dateModif'  <?php echo "value='".$data['dateRdv']."'"?> <?php $val="modifier".$data["idRdv"]; if(!isset($_POST[$val])){echo "readonly";}?>></td>
 						<td><input type = 'time' class="heure" name='heureModif' <?php echo "value='".$data['heure']."'"?> <?php $val="modifier".$data["idRdv"]; if(!isset($_POST[$val])){echo "readonly";}?>></td>
