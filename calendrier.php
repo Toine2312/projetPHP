@@ -16,6 +16,7 @@
 				$annee = date("Y");
 				$calendrier = $date->getAll($annee);
 				//print_r($calendrier);
+				$events = rdvMedecin($_POST["medRef"], $annee);
 				
 			?>
 		<div class="calendrier">
@@ -51,11 +52,19 @@
 										<?php 
 										$jourFin= end($jour);
 										foreach ($jour as $j=>$w) {
+											$time = strtotime("$annee-$m-j");
 											if($j == 1 && $w != 1){
 												$col= $w-1;
 												echo "<td colspan='".$col."'></td>";
 											}
 											echo "<td>".$j."</td>";
+											echo "<div class='events'>";
+												if (isset($events[$time])) {
+													foreach ($events[$time] as $e) {
+														echo "<li>".$e."</li>";
+													}
+												}
+											echo "</div>";
 											if($w%7 == 0){
 												echo "</tr><tr>";
 											}
@@ -75,3 +84,17 @@
 		</div>
 	</body>
 </html>
+
+<?php
+	include("connexionBDD.php");
+	function rdvMedecin($idMed, $annee){
+			$r = array();
+			$res = $linkpdo->query('SELECT * FROM rdv WHERE idMed='.$idMed.' ORDER BY dateRdv DESC, heure DESC'); 
+			while($data = $res3->fetch()) { 
+				$heureFin = $data["heure"]+$data["duree"];
+				$r[strtotime($data["dateRDV"])][$data["idRDv"]] = $data["heure"]." - ".$heureFin." En consultation" ;
+
+			}
+			return $r;
+	}
+ ?>
