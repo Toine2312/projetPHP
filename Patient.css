@@ -26,7 +26,8 @@
 
 #divTableauPatient{
 	background-color: rgba(27, 20, 120, 0.9);
-	margin: 1%;
+	max-width: 1145px;
+	margin: auto;
 	padding: 2px;
 	text-align: center;
 	display: block;
