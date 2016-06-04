@@ -3,12 +3,16 @@
 	<?php
 		if (isset($_GET['idMed']) && isset($_GET['suppr'])){
 			$id=$_GET['idMed'];
-			include"./ConnexionBDD.php";
+			$req=$linkpdo->query("SELECT * FROM rdv WHERE idMed='$id'");
+				if($res=$req->fetch()){
+					echo "<br><p id='text'>Le Medecin a des rdv et ne peut pas etre supprimé </p>";
+				}else{
 
-				$req = $linkpdo->prepare('DELETE FROM medecin WHERE idMed = :id');
-				$req->execute(array('id' => $id)); 
-				echo "<br><p id='textmed'>Contact supprim&eacute; avec succes !</p>";
-				echo "<meta http-equiv='refresh' content='1; URL=./?medecins=ok''></meta>";
+					$req = $linkpdo->prepare('DELETE FROM medecin WHERE idMed = :id');
+					$req->execute(array('id' => $id)); 
+					echo "<br><p id='textmed'>Contact supprim&eacute; avec succes !</p>";
+					echo "<meta http-equiv='refresh' content='1; URL=./?medecins=ok''></meta>";
+				}
 		}
 	?>
 
