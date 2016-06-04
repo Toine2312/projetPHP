@@ -1,6 +1,6 @@
 <?php
 	session_start();
-	if (!isset($_SESSION["etat"])) {
+	if (isset($_SESSION["etat"])) {
 		$_SESSION["etat"]="Connexion";
 	}
 	
