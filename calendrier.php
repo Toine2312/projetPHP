@@ -86,8 +86,9 @@
 </html>
 
 <?php
-	include("connexionBDD.php");
+	
 	function rdvMedecin($idMed, $annee){
+			include("connexionBDD.php");
 			$r = array();
 			$res = $linkpdo->query('SELECT * FROM rdv WHERE idMed='.$idMed.' ORDER BY dateRdv DESC, heure DESC'); 
 			while($data = $res->fetch()) { 
