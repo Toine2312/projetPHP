@@ -49,9 +49,11 @@
 											echo "<td>".$j."</td>";
 											echo "<div class='events'>";
 												if (isset($events[$time])) {
+													echo "<ul>";
 													foreach ($events[$time] as $e) {
 														echo "<li>".$e."</li>";
 													}
+													echo "</ul>";
 												}
 											echo "</div>";
 											if($w%7 == 0){
