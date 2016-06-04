@@ -3,6 +3,10 @@
 	<br>
 	<p id="titre">Planning</p>
 	<?php
+		if(isset($_POST["supprimer"])){
+				$req1 = $linkpdo -> prepare ('DELETE FROM rdv WHERE idRdv= :idRDV');
+				$req1->execute(array('idRDV'=>$_POST["idRdvModif"]));
+		}
 		if(isset($_POST["ajout"])){
 			if(verificationRDV($_POST["heure"], $_POST["duree"], $_POST["medecin"], $_POST["dateRdv"]) < 0){
 				$req1 = $linkpdo -> prepare ('INSERT into rdv (idPatient, idMed, dateRdv, heure, duree) values (:idPatient, :idMed, :dateRdv, :heure, :duree)');
@@ -146,8 +150,23 @@
 						<input type='hidden' name='idRdvModif' <?php echo "value='".$data['idRdv']."'"?>>
 						<td><input type = 'date' class="date" name='dateModif'  <?php echo "value='".$data['dateRdv']."'"?> <?php $val="modifier".$data["idRdv"]; if(!isset($_POST[$val])){echo "readonly";}?>></td>
 						<td><input type = 'time' class="heure" name='heureModif' <?php echo "value='".$data['heure']."'"?> <?php $val="modifier".$data["idRdv"]; if(!isset($_POST[$val])){echo "readonly";}?>></td>
-						<td><input type = 'text' class="texte" name='patientModif' <?php echo "value='".$data['idPatient']."'"?> <?php $val="modifier".$data["idRdv"]; if(!isset($_POST[$val])){echo "readonly";}?>></input></td>
-						<td><input type = 'text' class="texte" name='medecinModif' <?php echo "value='".$data['idMed']."'"?><?php $val="modifier".$data["idRdv"]; if(!isset($_POST[$val])){echo "readonly";}?>></input></td>
+						<td><input type = 'text' class='texte' name='afficheNomP' <?php $res4 = $linkpdo->query('SELECT nomP, prenomP FROM patient WHERE idPatient='.$data['idPatient']); if($data1 = $res4->fetch()){echo "value='".$data1["nomP"]." ".$data1["prenomP"]."'";} ?> readonly></input></td>
+						<input type = 'hidden' name='patientModif' <?php echo "value='".$data['idPatient']."'"?>></input>
+						<td>
+							<select name='medecinModif' <?php $val="modifier".$data["idRdv"]; if(!isset($_POST[$val])){echo " DISABLED";}?>>
+									<?php
+									$res5 = $linkpdo->query('SELECT * FROM medecin ');
+										while($data2 = $res5->fetch()) {
+												if($data2["idMed"] == $data["idMed"]){
+													echo "<option value='".$data2['idMed']."' selected='selected'>".$data2['nomM']." ".$data2['prenomM']."</option>";
+												}else{
+													echo "<option value='".$data2['idMed']."'>".$data2['nomM']." ".$data2['prenomM']."</option>";
+												}
+												
+										}
+									?>
+							</select>
+						</td>	
 						<td><input type = 'time' class="heure" name='dureeModif' <?php echo "value='".$data['duree']."'"?> <?php $val="modifier".$data["idRdv"]; if(!isset($_POST[$val])){echo "readonly";}?>></td>
 						<td><input type='submit' <?php $val="modifier".$data["idRdv"]; echo (!isset($_POST[$val])) ? 'class="btn_modifier"' : 'class="btn_validerModif"';?> value=" " align='middle'<?php echo (!isset($_POST[$val])) ? "name = 'modifier".$data["idRdv"]."'" : "name = 'validerModif".$data["idRdv"]."'"?>></input></td>
 						<td><input class="btn_supprimer" type='submit'  value=" " align='middle' name = 'supprimer'></input></td>
