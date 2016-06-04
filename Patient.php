@@ -51,7 +51,7 @@
 		$req=$linkpdo->query("Select * from patient where idPatient='$id'");
 		if($res=$req->fetch()) {
 			echo "<br><p id='text'>Modifier ce patient ?</p>
-					<div id'divTableauModif'>
+					<div id='divTableauModif'>
 						<form action='./?patients=ok' method='POST'>
 							<table id='tableauPatient'>
 								<tr>
@@ -123,7 +123,7 @@
 								<p id='text'>Le medecin referant de <B>".$res['civiliteP']." ".$res['nomP']." ".$res['prenomP']."</B> est le Docteur <B>".$res1['prenomM']." ".$res1['nomM']."</B></p>
 								<p id='text'>Si vous voulez changer de medecin referant, veillez selectionner celui desirer dans la liste ci-dessous</p>
 								<br>
-								<div id='divTableauModif'
+								<div id='divTableauModifMedecinReferant'>
 									<form action='./?patients=ok' method='POST'>
 										<table id='tableauModif'>
 											<tr>
@@ -153,7 +153,7 @@
 					}else{
 						echo "<br>
 							<p id='text'>Choisissez un medecin referant pour <B>".$res['civiliteP']." ".$res['nomP']." ".$res['prenomP']."</B> </p>
-							<div id='divTableauModif'>
+							<div id='divTableauModifMedecinReferant'>
 								<form action='./?patients=ok' method='POST'>
 									<table id='tableauModif'>
 										<tr>

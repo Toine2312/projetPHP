@@ -9,6 +9,32 @@
 	color:white;
 }
 
+#divTableauModifMedecinReferant{
+	background-color: rgba(27, 20, 120, 0.9);
+	max-width: 360px;
+	margin: auto;
+	margin-top: 1%;
+	padding: 2px;
+	text-align: center;
+	display: block;
+	overflow: auto;
+}
+
+#tableauModifMedecinReferant{
+	color: white;
+    border-collapse: collapse;
+}
+
+#tableauModifMedecinReferant tr td{
+	padding: 2px;
+}
+
+#tableauModifMedecinReferant tr td select{
+	padding: 2px;
+	width: 170px;
+
+}
+
 #divTableauModif{
 	background-color: rgba(27, 20, 120, 0.9);
 	max-width: 1145px;
