@@ -72,24 +72,32 @@
 			</tbody>
 		</table>
 	</div>
-	<table>
-		<tr>
-			<td> Medecin </td>
-			<td> Total de consultations </td>
-			<td> En heures </td>
-		</tr>	
-		<?php 
-			$req=$linkpdo->query("Select * from medecin");
-				while ($res=$req->fetch()) {
-					echo "<tr>
-							<td> Docteur ".$res['prenomM']." ".$res['nomM']."</td>";
-					$req1=$linkpdo->query("Select count(*) as totalConsult, SEC_TO_TIME(SUM(TIME_TO_SEC(duree)))  as totalheure from rdv where idMed=\"".$res['idMed']."\" group by idMed");
-					if ($res1=$req1->fetch()){
-						echo "<td> ".$res1['totalConsult']." </td>
-							  <td> ".$res1['totalheure']."</td>
-							</tr>";
-					}
-				}
-		?>
-	</table>
+	<p id="textstat">Statistique Medecins</p>
+
+	<div id="divtableauStat">
+		<table id="tableauStat">
+			<thead id="enteteTabStat">
+				<tr>
+					<td> Medecin </td>
+					<td> Total de consultations </td>
+					<td> En heures </td>
+				</tr>
+			</thead>
+			<tbody>
+				<?php 
+					$req=$linkpdo->query("Select * from medecin");
+						while ($res=$req->fetch()) {
+							echo "<tr>
+									<td> Docteur ".$res['prenomM']." ".$res['nomM']."</td>";
+							$req1=$linkpdo->query("Select count(*) as totalConsult, SEC_TO_TIME(SUM(TIME_TO_SEC(duree)))  as totalheure from rdv where idMed=\"".$res['idMed']."\" group by idMed");
+							if ($res1=$req1->fetch()){
+								echo "<td> ".$res1['totalConsult']." </td>
+									  <td> ".$res1['totalheure']."</td>
+									</tr>";
+							}
+						}
+				?>
+			</tbody>
+		</table>
+	</div>
 </div>
