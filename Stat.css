@@ -1,3 +1,7 @@
+#PageStat{
+	display: inline-block;
+}
+
 #titrestat{
 	font-size: 40px;
 	color:white;
@@ -9,7 +13,7 @@
 	color:white;
 }
 
-#divtableauStat{
+#divtableauStatPat{
 	background-color: rgba(27, 20, 120, 0.9);
 	display: block;
 	margin-top: 1%;
@@ -21,22 +25,60 @@
     overflow: auto;
 }
 
-#tableauStat{
+#tableauStatPat{
 	color: white;
     border-collapse: collapse;
 }
 
-#tableauStat tr td{
+#tableauStatPat tr td{
 	padding: 3px;
 	width:130px;
 }
 
-#enteteTabStat{
+#enteteTabStatPat{
 	font-weight: bold;
 	border: 1px solid white;
 }
 
-#donneesStat tr td{
+#donneesStatPat tr td{
+	padding: 3px;
+	font-style: normal;
+	border-left: none;
+    border-right: 1px solid white;;
+    border-top: none;
+    border-bottom: none;
+}
+
+
+
+#divtableauStatMed{
+	background-color: rgba(27, 20, 120, 0.9);
+	display: block;
+	margin-top: 1%;
+	margin-left: auto;
+	margin-right: auto;
+	padding: 5px;
+	width: 560px;
+    text-align: center;
+    overflow: auto;
+}
+
+#tableauStatMed{
+	color: white;
+    border-collapse: collapse;
+}
+
+#tableauStatMed tr td{
+	padding: 3px;
+	width:200px;
+}
+
+#enteteTabStatMed{
+	font-weight: bold;
+	border: 1px solid white;
+}
+
+#donneesStatMed tr td{
 	padding: 3px;
 	font-style: normal;
 	border-left: none;
