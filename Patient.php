@@ -51,39 +51,41 @@
 		$req=$linkpdo->query("Select * from patient where idPatient='$id'");
 		if($res=$req->fetch()) {
 			echo "<br><p id='text'>Modifier ce patient ?</p>
-					<form action='./?patients=ok' method='POST'>
-						<table id='tableauPatient'>
-							<tr>
-								<td>Civilit&eacute;</td>
-								<td>Nom</td>
-								<td>Prenom</td>
-								<td>Adresse</td>
-								<td>Code postal</td>
-								<td>Ville</td>
-								<td>Date de Naissance</td>
-								<td>Lieu de Naissance</td>
-								<td>Numero Securit&eacute; Social</td>
-							</tr>
-							<tr>";
-						if ($res['civiliteP']=='M.') {
-							echo "<td><select name='civilite'><option value='M.' selected='selected'>M.</option><option value='Mme.'>Mme.</option></select></td>";
-						}else{
-							echo "<td><select name='civilite'><option value='Mme.' selected='selected'>Mme.</option><option value='M.'>M.</option></select></td>";
-						}
-							echo "<td><input type='text' name='nom' value=\"".$res['nomP']."\" id='tdNom_Prenom_Ville'></td>
-								<td><input type='text' name='prenom' value=\"".$res['prenomP']."\" id='tdNom_Prenom_Ville'></td>
-								<td><input type='text' name='adresse' value=\"".$res['adresseP']."\" id='tdadresse'></td>
-								<td><input type='text' name='cp' value=\"".$res['cpP']."\" id='tdCp'></td>
-								<td><input type='text' name='ville' value=\"".$res['villeP']."\" id='tdNom_Prenom_Ville'></td>
-								<td><input type='date' name='dateNaissance' class='date' value=\"".$res['dateNaissanceP']."\" id='tdDate_Lieu_Naiss'></td>
-								<td><input type='text' name='lieuNaissance' value=\"".$res['lieuNaissanceP']."\" id='tdDate_Lieu_Naiss'></td>
-								<td><input type='text' name='numSS' value=\"".$res['numSS']."\" id='tdNumSS'></td>
-								<input type='hidden' name='patients' value='ok'>
-								<input type='hidden' name='modif'>
-								<td colspan=2 align='center'><input type='submit' value='Modifier'><input type='hidden' name='id' value=".$res['idPatient']."></td>
-							</tr>
-						</table>
-					</form>
+					<div id'divTableauModif'>
+						<form action='./?patients=ok' method='POST'>
+							<table id='tableauPatient'>
+								<tr>
+									<td>Civilit&eacute;</td>
+									<td>Nom</td>
+									<td>Prenom</td>
+									<td>Adresse</td>
+									<td>Code postal</td>
+									<td>Ville</td>
+									<td>Date de Naissance</td>
+									<td>Lieu de Naissance</td>
+									<td>Numero Securit&eacute; Social</td>
+								</tr>
+								<tr>";
+							if ($res['civiliteP']=='M.') {
+								echo "<td><select name='civilite'><option value='M.' selected='selected'>M.</option><option value='Mme.'>Mme.</option></select></td>";
+							}else{
+								echo "<td><select name='civilite'><option value='Mme.' selected='selected'>Mme.</option><option value='M.'>M.</option></select></td>";
+							}
+								echo "<td><input type='text' name='nom' value=\"".$res['nomP']."\" id='tdNom_Prenom_Ville'></td>
+									<td><input type='text' name='prenom' value=\"".$res['prenomP']."\" id='tdNom_Prenom_Ville'></td>
+									<td><input type='text' name='adresse' value=\"".$res['adresseP']."\" id='tdadresse'></td>
+									<td><input type='text' name='cp' value=\"".$res['cpP']."\" id='tdCp'></td>
+									<td><input type='text' name='ville' value=\"".$res['villeP']."\" id='tdNom_Prenom_Ville'></td>
+									<td><input type='date' name='dateNaissance' class='date' value=\"".$res['dateNaissanceP']."\" id='tdDate_Lieu_Naiss'></td>
+									<td><input type='text' name='lieuNaissance' value=\"".$res['lieuNaissanceP']."\" id='tdDate_Lieu_Naiss'></td>
+									<td><input type='text' name='numSS' value=\"".$res['numSS']."\" id='tdNumSS'></td>
+									<input type='hidden' name='patients' value='ok'>
+									<input type='hidden' name='modif'>
+									<td colspan=2 align='center'><input type='submit' value='Modifier'><input type='hidden' name='id' value=".$res['idPatient']."></td>
+								</tr>
+							</table>
+						</form>
+					</div>
 					<br>
 					<br>";
 		}
@@ -121,12 +123,43 @@
 								<p id='text'>Le medecin referant de <B>".$res['civiliteP']." ".$res['nomP']." ".$res['prenomP']."</B> est le Docteur <B>".$res1['prenomM']." ".$res1['nomM']."</B></p>
 								<p id='text'>Si vous voulez changer de medecin referant, veillez selectionner celui desirer dans la liste ci-dessous</p>
 								<br>
+								<div id='divTableauModif'
+									<form action='./?patients=ok' method='POST'>
+										<table id='tableauModif'>
+											<tr>
+												<td>Nom</td>
+												<td>Prenom</td>
+												<td>    =>       </td>
+												<td>Medecin</td>
+											</tr>
+											<tr>
+												<td>".$res['nomP']."</td>
+												<td>".$res['prenomP']."</td>
+												<td>   </td>
+												<td><select name='medecinReferant'>";
+												$req2=$linkpdo->query("Select * from medecin");
+													while ($res2=$req2->fetch()) {		
+															echo "<option value=\"".$res2['idMed']."\">Docteur ".$res2['prenomM']." ".$res2['nomM']."</option>";				
+													}
+												echo "</select>
+												<td colspan=2 align='center'><input type='submit' value='Valider'><input type='hidden' name='id' value=".$res['idPatient']."></td>
+											</tr>
+										</table>
+									</form>
+								</div>
+								<br>
+								<br>";
+						}
+					}else{
+						echo "<br>
+							<p id='text'>Choisissez un medecin referant pour <B>".$res['civiliteP']." ".$res['nomP']." ".$res['prenomP']."</B> </p>
+							<div id='divTableauModif'>
 								<form action='./?patients=ok' method='POST'>
 									<table id='tableauModif'>
 										<tr>
 											<td>Nom</td>
 											<td>Prenom</td>
-											<td>    =>       </td>
+											<td>=></td>
 											<td>Medecin</td>
 										</tr>
 										<tr>
@@ -134,43 +167,16 @@
 											<td>".$res['prenomP']."</td>
 											<td>   </td>
 											<td><select name='medecinReferant'>";
-											$req2=$linkpdo->query("Select * from medecin");
-												while ($res2=$req2->fetch()) {		
-														echo "<option value=\"".$res2['idMed']."\">Docteur ".$res2['prenomM']." ".$res2['nomM']."</option>";				
-												}
+													$req3=$linkpdo->query("Select * from medecin");
+													while ($res3=$req3->fetch()) {
+														echo "<option value=\"".$res3['idMed']."\">Docteur ".$res3['prenomM']." ".$res3['nomM']."</option>";
+													}
 											echo "</select>
 											<td colspan=2 align='center'><input type='submit' value='Valider'><input type='hidden' name='id' value=".$res['idPatient']."></td>
 										</tr>
 									</table>
 								</form>
-								<br>
-								<br>";
-						}
-					}else{
-						echo "<br>
-							<p id='text'>Choisissez un medecin referant pour <B>".$res['civiliteP']." ".$res['nomP']." ".$res['prenomP']."</B> </p>
-							<form action='./?patients=ok' method='POST'>
-								<table id='tableauModif'>
-									<tr>
-										<td>Nom</td>
-										<td>Prenom</td>
-										<td>=></td>
-										<td>Medecin</td>
-									</tr>
-									<tr>
-										<td>".$res['nomP']."</td>
-										<td>".$res['prenomP']."</td>
-										<td>   </td>
-										<td><select name='medecinReferant'>";
-												$req3=$linkpdo->query("Select * from medecin");
-												while ($res3=$req3->fetch()) {
-													echo "<option value=\"".$res3['idMed']."\">Docteur ".$res3['prenomM']." ".$res3['nomM']."</option>";
-												}
-										echo "</select>
-										<td colspan=2 align='center'><input type='submit' value='Valider'><input type='hidden' name='id' value=".$res['idPatient']."></td>
-									</tr>
-								</table>
-							</form>
+							</div>
 							<br>
 							<br>";
 					}
