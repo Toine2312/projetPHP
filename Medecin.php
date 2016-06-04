@@ -7,7 +7,7 @@
 
 				$req = $linkpdo->prepare('DELETE FROM medecin WHERE idMed = :id');
 				$req->execute(array('id' => $id)); 
-				echo "<br><p id='textmed'>Contact supprimé avec succes !</p>";
+				echo "<br><p id='textmed'>Contact supprim&eacute; avec succes !</p>";
 				echo "<meta http-equiv='refresh' content='1; URL=./?medecins=ok''></meta>";
 		}
 	?>
@@ -28,7 +28,7 @@
 								'nvPrenom' => $prenom,
 								'id' => $id));
 
-			echo "<br><p id='textmed'>Medecin modifié avec succes !</p>";
+			echo "<br><p id='textmed'>Medecin modifi&eacute; avec succes !</p>";
 			echo "<meta http-equiv='refresh' content='1; URL=./?medecins=ok'></meta>";
 			
 		}
@@ -80,7 +80,7 @@
 			$req -> execute(array('civiliteM'=>$civiliteM, 
 								'nom'=>$nom, 
 								'prenom'=>$prenom));
-			echo "<br><p id='textmed'>Medecin ajouter a la base<br></p>";
+			echo "<br><p id='textmed'>Medecin ajout&eacute; a la base<br></p>";
 			echo "<meta http-equiv='refresh' content='1; URL=./?medecins=ok''></meta>";
 		}
 	?>

@@ -6,7 +6,7 @@
 				include"./ConnexionBDD.php";
 				$req = $linkpdo->prepare('DELETE FROM patient WHERE idPatient = :id');
 				$req->execute(array('id' => $id));
-				echo "<br><p id='text'>Contact supprimé avec succes !</p>";
+				echo "<br><p id='text'>Contact supprim&eacute; avec succes !</p>";
 				echo "<meta http-equiv='refresh' content='1; URL=./?patients=ok''></meta>";
 		}
 	?>
@@ -39,7 +39,7 @@
 							'nvNumSS' => $numSS,
 							'id' => $id));
 
-		echo "<br><p id='text'>Contact modifié avec succes !</p>";
+		echo "<br><p id='text'>Contact modifi&eacute; avec succes !</p>";
 		echo "<meta http-equiv='refresh' content='1; URL=./?patients=ok'></meta>";
 		
 	}
@@ -204,7 +204,7 @@
 							'dateNaissance'=>$dateNaissanceP, 
 							'lieuNaissance'=>$lieuNaissanceP, 
 							'numSS'=>$numSS));
-		echo "<br><p id='titre'>Contact ajouter a la base<br></p>";
+		echo "<br><p id='titre'>Contact ajout&eacute; a la base<br></p>";
 		echo "<meta http-equiv='refresh' content='1; URL=./?patients=ok''></meta>";
 	}
 	?>
