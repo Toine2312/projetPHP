@@ -9,14 +9,19 @@
 	color:white;
 }
 
-#tableauModif{
+#divTableauModif{
 	background-color: rgba(27, 20, 120, 0.9);
+	max-width: 1145px;
+	margin: auto;
+	margin-top: 1%;
+	padding: 2px;
+	text-align: center;
 	display: block;
-	margin-left: 35%;
-	margin-right: 35%;
-	padding: 10px;
+	overflow: auto;
+}
+
+#tableauModif{
 	color: white;
-    text-align: center;
     border-collapse: collapse;
 }
 
@@ -28,6 +33,7 @@
 	background-color: rgba(27, 20, 120, 0.9);
 	max-width: 1145px;
 	margin: auto;
+	margin-top: 1%;
 	padding: 2px;
 	text-align: center;
 	display: block;
@@ -35,9 +41,7 @@
 }
 
 #tableauPatient{
-	
 	color: white;
-    
     border-collapse: collapse;
 }
 
