@@ -3,11 +3,10 @@
 	<?php
 		if (isset($_GET['idPatient']) && isset($_GET['suppr'])){
 			$id=$_GET['idPatient'];
-			$req=$linkpdo->query('SELECT * FROM rdv WHERE idPatient=$id');
+			$req=$linkpdo->query("SELECT * FROM rdv WHERE idPatient='$id'");
 				if($res=$req->fetch()){
 					echo "<br><p id='text'>Le contact a des rdv et ne peut pas etre supprimé </p>";
 				}else{
-					include"./ConnexionBDD.php";
 					$req = $linkpdo->prepare('DELETE FROM patient WHERE idPatient = :id');
 					$req->execute(array('id' => $id));
 					echo "<br><p id='text'>Contact supprim&eacute; avec succes !</p>";
