@@ -1,10 +1,10 @@
 <?php
 ///Connexion au serveur MySQL
 	
-	$server = "mysql.hostinger.fr";
-	$db = "u359973717_gcm";
-	$login = "u359973717_fanny";
-	$mdp = "tagada66";
+	$server = "localhost";
+	$db = "gestion_cabinet_medical";
+	$login = "root";
+	$mdp = "";
 
 	try { 
 		$linkpdo = new PDO("mysql:host=$server;dbname=$db", $login, $mdp);

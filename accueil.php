@@ -1,3 +1,3 @@
 	<br>
 	<br>
-	<center><h1>Connecter vous, pour acceder à toutes les fonctionalités</h1></center>
+	<center><h1>Connecter vous, pour acceder &agrave; toutes les fonctionalit&eacute;s</h1></center>

@@ -9,14 +9,45 @@
 	color:white;
 }
 
-#tableauModif{
+#divTableauModifMedecinReferant{
 	background-color: rgba(27, 20, 120, 0.9);
+	max-width: 360px;
+	margin: auto;
+	margin-top: 1%;
+	padding: 2px;
+	text-align: center;
 	display: block;
-	margin-left: 35%;
-	margin-right: 35%;
-	padding: 10px;
+	overflow: auto;
+}
+
+#tableauModifMedecinReferant{
 	color: white;
-    text-align: center;
+    border-collapse: collapse;
+}
+
+#tableauModifMedecinReferant tr td{
+	padding: 2px;
+}
+
+#tableauModifMedecinReferant tr td select{
+	padding: 2px;
+	width: 170px;
+
+}
+
+#divTableauModif{
+	background-color: rgba(27, 20, 120, 0.9);
+	max-width: 1145px;
+	margin: auto;
+	margin-top: 1%;
+	padding: 2px;
+	text-align: center;
+	display: block;
+	overflow: auto;
+}
+
+#tableauModif{
+	color: white;
     border-collapse: collapse;
 }
 
@@ -24,13 +55,19 @@
 	padding: 2px;
 }
 
-#tableauPatient{
+#divTableauPatient{
 	background-color: rgba(27, 20, 120, 0.9);
-	display: block;
-	margin: 1%;
+	max-width: 1145px;
+	margin: auto;
+	margin-top: 1%;
 	padding: 2px;
+	text-align: center;
+	display: block;
+	overflow: auto;
+}
+
+#tableauPatient{
 	color: white;
-    text-align: center;
     border-collapse: collapse;
 }
 
@@ -68,14 +105,14 @@
 }
 
 #tdDate_Lieu_Naiss{
-	width:143px;
+	width:125px;
 }
 
 #tdadresse{
-	width: 230px;
+	width: 130px;
 	text-align: right;
 }
 
 #tdNumSS{
-	width: 177px;
+	width: 140px;
 }
