@@ -9,15 +9,19 @@
 	color:white;
 }
 
-#tableauMed{
+#divtableauMed{
 	background-color: rgba(27, 20, 120, 0.9);
 	display: block;
 	margin-top: 1%;
 	margin-left: 37%;
 	margin-right: 36%;
 	padding: 5px;
-	color: white;
     text-align: center;
+    overflow: auto;
+}
+
+#tableauMed{
+	color: white;
     border-collapse: collapse;
 }
 
