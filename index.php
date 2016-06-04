@@ -1,6 +1,9 @@
 <?php
 	session_start();
-	//$_SESSION["etat"]="Connexion"
+	if (!isset($_SESSION["etat"])) {
+		$_SESSION["etat"]="Connexion";
+	}
+	
 	include("ConnexionBDD.php");
 ?>
 <!DOCTYPE HTML>
