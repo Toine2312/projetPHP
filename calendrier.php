@@ -74,9 +74,9 @@
 		<?php
 	
 			function rdvMedecin($idMed, $annee){
-					//include("ConnexionBDD.php");
+					include("ConnexionBDD.php");
 					$r = array();
-					$res = $linkpdo->query('SELECT * FROM rdv WHERE idMed='.$idMed.' ORDER BY dateRdv DESC, heure DESC'); 
+					$res = $linkpdo->query('SELECT * FROM rdv WHERE idMed=$idMed ORDER BY dateRdv DESC, heure DESC'); 
 					while($data = $res->fetch()) { 
 						$heureFin = $data["heure"]+$data["duree"];
 						$r[strtotime($data["dateRDV"])][$data["idRDv"]] = $data["heure"]." - ".$heureFin." En consultation" ;
