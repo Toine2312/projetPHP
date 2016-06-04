@@ -1,0 +1,48 @@
+#titrestat{
+	font-size: 40px;
+	color:white;
+	font-weight: bold;
+}
+
+#textstat{
+	font-size: 20px;
+	color:white;
+}
+
+#divtableauStat{
+	background-color: rgba(27, 20, 120, 0.9);
+	display: block;
+	margin-top: 1%;
+	margin-left: auto;
+	margin-right: auto;
+	padding: 5px;
+	width: 345px;
+    text-align: center;
+    overflow: auto;
+}
+
+#tableauStat{
+	color: white;
+    border-collapse: collapse;
+}
+
+#tableauStat tr td{
+	padding: 3px;
+}
+
+#donneesStat tr td{
+	padding: 3px;
+	font-style: normal;
+	border: 1px solid white;
+	border-left: none;
+    border-right: none;
+    border-top: none;
+}
+
+#tdCivilite {
+	width: 68px;
+}
+
+#tdNom_Prenom{
+	width: 100px;
+}
