@@ -98,7 +98,7 @@
 									echo "<td> 0 </td>
 										  <td> 00:00:00 </td>
 										</tr>";	
-									}else{								}
+									}else{								
 									echo "<td> ".$res1['totalConsult']." </td>
 										  <td> ".$res1['totalheure']."</td>
 										</tr>";
