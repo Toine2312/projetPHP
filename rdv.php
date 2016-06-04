@@ -100,7 +100,7 @@
 						<td><input type="time" class="heure" name="heure"></td>
 					</tr>
 					<tr>
-						<th>Durée</th>
+						<th>Dur&eacute;e</th>
 						<td><input type="time" class="heure" name="duree" value="00:30:00"></td>
 					</tr>
 					<tr>
@@ -133,7 +133,7 @@
 			<th> Heure</th>
 			<th> Patient</th>
 			<th> Medecin</th>
-			<th> Durée</th>
+			<th> Dur&eacute;e</th>
 		</tr>
 		<?php 
 			$i=0;

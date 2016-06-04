@@ -210,7 +210,7 @@
 	?>
 	<br>
 	<br>
-	<p id="titre">Nos Patients<p>
+	<p id="titre">Nos Patients</p>
 	<table id="tableauPatient">
 		<thead id="enteteTab">
 			<tr>
@@ -222,7 +222,7 @@
 				<td>Ville <a href='./?patients=ok&filtreVille=ok'><IMG src='filtre.png' alt='filtrerChamp'></a></td>
 				<td>Date de naissance <a href='./?patients=ok&filtreDate=ok'><IMG src='filtre.png' alt='filtrerChamp'></a></td>
 				<td>Lieu de naissance <a href='./?patients=ok&filtreLieu=ok'><IMG src='filtre.png' alt='filtrerChamp'></a></td>
-				<td>N° securit&eacute; social <a href='./?patients=ok&filtreNSS=ok'><IMG src='filtre.png' alt='filtrerChamp'></a></td>
+				<td>N&ordm; securit&eacute; social <a href='./?patients=ok&filtreNSS=ok'><IMG src='filtre.png' alt='filtrerChamp'></a></td>
 			</tr>
 		<form action="./?patients=ok" method="POST"  id="ajoutPatient">
 			<tr>
