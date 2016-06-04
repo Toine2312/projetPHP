@@ -221,8 +221,8 @@
 					<td>Adresse <a href='./?patients=ok&filtreAdresse=ok'><IMG src='filtre.png' alt='filtrerChamp'></a></td>
 					<td>Code postal <a href='./?patients=ok&filtreCp=ok'><IMG src='filtre.png' alt='filtrerChamp'></a></td>
 					<td>Ville <a href='./?patients=ok&filtreVille=ok'><IMG src='filtre.png' alt='filtrerChamp'></a></td>
-					<td>Date de naissance <a href='./?patients=ok&filtreDate=ok'><IMG src='filtre.png' alt='filtrerChamp'></a></td>
-					<td>Lieu de naissance <a href='./?patients=ok&filtreLieu=ok'><IMG src='filtre.png' alt='filtrerChamp'></a></td>
+					<td>Date naissance <a href='./?patients=ok&filtreDate=ok'><IMG src='filtre.png' alt='filtrerChamp'></a></td>
+					<td>Lieu naissance <a href='./?patients=ok&filtreLieu=ok'><IMG src='filtre.png' alt='filtrerChamp'></a></td>
 					<td>N&ordm; securit&eacute; social <a href='./?patients=ok&filtreNSS=ok'><IMG src='filtre.png' alt='filtrerChamp'></a></td>
 				</tr>
 			<form action="./?patients=ok" method="POST"  id="ajoutPatient">
