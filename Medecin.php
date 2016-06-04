@@ -6,6 +6,7 @@
 			$req=$linkpdo->query("SELECT * FROM rdv WHERE idMed='$id'");
 				if($res=$req->fetch()){
 					echo "<br><p id='text'>Le Medecin a des rdv et ne peut pas etre supprimé </p>";
+					echo "<meta http-equiv='refresh' content='1; URL=./?medecins=ok''></meta>";
 				}else{
 
 					$req = $linkpdo->prepare('DELETE FROM medecin WHERE idMed = :id');
