@@ -94,15 +94,13 @@
 										<td> Docteur ".$res['prenomM']." ".$res['nomM']."</td>";
 								$req1=$linkpdo->query("Select count(*) as totalConsult, SEC_TO_TIME(SUM(TIME_TO_SEC(duree)))  as totalheure from rdv where idMed=\"".$res['idMed']."\" group by idMed");
 								if ($res1=$req1->fetch()){
-									if ($res1['totalConsult'] == "") {
-									echo "<td> 0 </td>
-										  <td> 00:00:00 </td>
-										</tr>";
-									}else{
 									echo "<td> ".$res1['totalConsult']." </td>
 										  <td> ".$res1['totalheure']."</td>
-										</tr>";							
-									}
+										</tr>";	
+								}else{
+									echo "<td> 0 </td>
+										  <td> 00:00:00 </td>
+										</tr>";						
 								}
 							}
 					?>
