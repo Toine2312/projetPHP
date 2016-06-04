@@ -1,15 +1,4 @@
-<!DOCTYPE HTML>
-<html>
-	<head>	
-		<title>Cabinet Medical</title>
-		<link rel="icon" type="image/png" href="./logoPetitMedical.ico" />
-		<link rel="stylesheet" type="text/css" href="style.css" media="all"/>
-		<link rel="stylesheet" type="text/css" href="Patient.css" media="all"/>
-		<link rel="stylesheet" type="text/css" href="Medecin.css" media="all"/>
-		<link rel="stylesheet" type="text/css" href="Stat.css" media="all"/>
-		<link rel="stylesheet" type="text/css" href="rdv.css" media="all"/>
-	</head>
-	<body>
+
 		<?php 
 				include("Date.php");
 				$date = new Date();
@@ -81,21 +70,22 @@
 			<?php 
 					}
 				}?>
-		</div>
-	</body>
-</html>
 
-<?php
+		<?php
 	
-	function rdvMedecin($idMed, $annee){
-			include("ConnexionBDD.php");
-			$r = array();
-			$res = $linkpdo->query('SELECT * FROM rdv WHERE idMed='.$idMed.' ORDER BY dateRdv DESC, heure DESC'); 
-			while($data = $res->fetch()) { 
-				$heureFin = $data["heure"]+$data["duree"];
-				$r[strtotime($data["dateRDV"])][$data["idRDv"]] = $data["heure"]." - ".$heureFin." En consultation" ;
+			function rdvMedecin($idMed, $annee){
+					//include("ConnexionBDD.php");
+					$r = array();
+					$res = $linkpdo->query('SELECT * FROM rdv WHERE idMed='.$idMed.' ORDER BY dateRdv DESC, heure DESC'); 
+					while($data = $res->fetch()) { 
+						$heureFin = $data["heure"]+$data["duree"];
+						$r[strtotime($data["dateRDV"])][$data["idRDv"]] = $data["heure"]." - ".$heureFin." En consultation" ;
 
+					}
+					return $r;
 			}
-			return $r;
-	}
- ?>
+		 ?>
+
+		</div>
+
+
