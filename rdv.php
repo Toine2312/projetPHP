@@ -3,10 +3,7 @@
 	<br>
 	<p id="titre">Planning</p>
 	<?php
-		if(isset($_POST["supprimer"])){
-				$req1 = $linkpdo -> prepare ('DELETE FROM rdv WHERE idRdv= :idRDV');
-				$req1->execute(array('idRDV'=>$_POST["idRdvModif"]));
-		}
+		
 		if(isset($_POST["ajout"])){
 			if(verificationRDV($_POST["heure"], $_POST["duree"], $_POST["medecin"], $_POST["dateRdv"]) < 0){
 				$req1 = $linkpdo -> prepare ('INSERT into rdv (idPatient, idMed, dateRdv, heure, duree) values (:idPatient, :idMed, :dateRdv, :heure, :duree)');
@@ -34,6 +31,10 @@
 										'duree'=>$_POST["dureeModif"],
 										'idRdv'=>$_POST["idRdvModif"]));
 			}
+		}
+		if(isset($_POST["supprimer"])){
+				$req1 = $linkpdo -> prepare ('DELETE FROM rdv WHERE idRdv= :idRDV');
+				$req1->execute(array('idRDV'=>$_POST["idRdvModif"]));
 		}
 		
 	?>
@@ -183,13 +184,13 @@
 	<?php
 	function verificationRDV($heureDebutNV, $duree, $med, $jour){
 		include("ConnexionBDD.php");
-		$res = $linkpdo->query('SELECT * FROM rdv WHERE idMed='.$med.' AND dateRdv='.$jour.' ORDER BY heure DESC');
+		$res = $linkpdo->query("SELECT * FROM rdv WHERE idMed='$med' AND dateRdv='$jour' ORDER BY heure DESC");
 		while($data = $res->fetch()) {
 			$heureFinRDV = $data["heure"] + $data["duree"];
 			$testRDVAvant = $data["heure"] - $data["duree"];
-			if($heureDebutNV >= $data["heure"] && $heureDebutNV < $heureFinRDV){
+			if($heureDebutNV >= $data["heure"] && $heureDebutNV <= $heureFinRDV){
 				return 0;
-			}elseif($heureDebutNV < $data["heure"] && $heureDebutNV >= $testRDVAvant){	
+			}elseif($heureDebutNV <= $data["heure"] && $heureDebutNV >= $testRDVAvant){	
 				return  0;
 			}
 		}
