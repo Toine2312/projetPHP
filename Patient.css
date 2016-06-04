@@ -24,13 +24,19 @@
 	padding: 2px;
 }
 
-#tableauPatient{
+#divTableauPatient{
 	background-color: rgba(27, 20, 120, 0.9);
-	display: block;
 	margin: 1%;
 	padding: 2px;
+	text-align: center;
+	display: block;
+	overflow: auto;
+}
+
+#tableauPatient{
+	
 	color: white;
-    text-align: center;
+    
     border-collapse: collapse;
 }
 
