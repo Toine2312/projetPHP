@@ -40,27 +40,29 @@
 			$req=$linkpdo->query("Select * from medecin where idMed='$id'");
 			if($res=$req->fetch()) {
 				echo "<br><p id='textmed'>Modifier ce medecin ?</p>
-						<form action='./?medecins=ok' method='POST'>
-							<table id='tableauMed'>
-								<tr>
-									<td>Civilit&eacute;</td>
-									<td>Nom</td>
-									<td>Prenom</td>
-								</tr>
-								<tr>";
-							if ($res['civiliteM']=='M.') {
-								echo "<td><select name='civilite'><option value='M.' selected='selected'>M.</option><option value='Mme.'>Mme.</option></select></td>";
-							}else{
-								echo "<td><select name='civilite'><option value='Mme.' selected='selected'>Mme.</option><option value='M.'>M.</option></select></td>";
-							}
-								echo "<td><input type='text' name='nom' value=\"".$res['nomM']."\" id='tdNom_Prenom_Ville'></td>
-									<td><input type='text' name='prenom' value=\"".$res['prenomM']."\" id='tdNom_Prenom_Ville'></td>
-									<td colspan=2 align='center'><input type='submit' value='Modifier'><input type='hidden' name='id' value=".$res['idMed']."></td>
-									<input type='hidden' name='medecins' value='ok'>
-									<input type='hidden' name='modif'>
-								</tr>
-							</table>
-						</form>
+						<div id='divtableauMed'>
+							<form action='./?medecins=ok' method='POST'>
+								<table id='tableauMed'>
+									<tr>
+										<td>Civilit&eacute;</td>
+										<td>Nom</td>
+										<td>Prenom</td>
+									</tr>
+									<tr>";
+								if ($res['civiliteM']=='M.') {
+									echo "<td><select name='civilite'><option value='M.' selected='selected'>M.</option><option value='Mme.'>Mme.</option></select></td>";
+								}else{
+									echo "<td><select name='civilite'><option value='Mme.' selected='selected'>Mme.</option><option value='M.'>M.</option></select></td>";
+								}
+									echo "<td><input type='text' name='nom' value=\"".$res['nomM']."\" id='tdNom_Prenom_Ville'></td>
+										<td><input type='text' name='prenom' value=\"".$res['prenomM']."\" id='tdNom_Prenom_Ville'></td>
+										<td colspan=2 align='center'><input type='submit' value='Modifier'><input type='hidden' name='id' value=".$res['idMed']."></td>
+										<input type='hidden' name='medecins' value='ok'>
+										<input type='hidden' name='modif'>
+									</tr>
+								</table>
+							</form>
+						</div>
 						<br>
 						<br>";
 			}
