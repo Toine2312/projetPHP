@@ -1,4 +1,6 @@
 <div class="pageInterne">
+	<br>
+	<br>
 	<p id="titrestat">Statistiques du cabinet</p>
 	<br>
 	
