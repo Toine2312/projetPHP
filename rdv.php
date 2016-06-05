@@ -128,7 +128,7 @@
 					//echo "<option value=' ' selected ='selected'></option>";
 					$res = $linkpdo->query('SELECT * FROM medecin');
 						while($data = $res->fetch()) {
-								if(isset($_POST["triMedecin"]) && $_POST["triMedecin"] == $data["idMed"]){
+								if(isset($_POST["triMedecin"]) && substr($_POST["triMedecin"], 6) == $data["idMed"]){
 									echo "<option value='idMed=".$data["idMed"]."'  selected ='selected'>".$data["nomM"]." ".$data["prenomM"]."</option>";
 								}else{
 									echo "<option value='idMed=".$data["idMed"]."'>".$data["nomM"]." ".$data["prenomM"]."</option>";
