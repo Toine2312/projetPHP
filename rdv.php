@@ -5,7 +5,7 @@
 	<?php
 		
 		if(isset($_POST["ajout"])){
-			echo " l'heure : ".$_POST["heure"]."la duree".$_POST["duree"]."le medecin".$_POST["medecin"]."la date :".$_POST["dateRdv"];
+			//echo " l'heure : ".$_POST["heure"]."la duree".$_POST["duree"]."le medecin".$_POST["medecin"]."la date :".$_POST["dateRdv"];
 			if(verificationRDV($_POST["heure"], $_POST["duree"], $_POST["medecin"], $_POST["dateRdv"]) != 0){
 				$req1 = $linkpdo -> prepare ('INSERT into rdv (idPatient, idMed, dateRdv, heure, duree) values (:idPatient, :idMed, :dateRdv, :heure, :duree)');
 				$req1 -> execute(array(	'idPatient'=>$_POST["patientSelect"], 
@@ -127,7 +127,11 @@
 					<?php
 					$res = $linkpdo->query('SELECT * FROM medecin /*WHERE idMed <> '.$POST["medRef"].')*/');
 						while($data = $res->fetch()) {
-								echo "<option value='idMed=".$data['idMed']."'>".$data['nomM']." ".$data['prenomM']."</option>";
+								if(isset($_POST["triMedecin"]) && $_POST["triMedecin"] == $data['idMed']){
+									echo "<option value='idMed=".$data['idMed']."' selected='selected'>".$data['nomM']." ".$data['prenomM']."</option>";
+								}else{
+									echo "<option value='idMed=".$data['idMed']."'>".$data['nomM']." ".$data['prenomM']."</option>";
+								}
 						}
 					?>
 				</select>
