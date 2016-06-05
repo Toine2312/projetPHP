@@ -5,7 +5,8 @@
 	<?php
 		
 		if(isset($_POST["ajout"])){
-			if(verificationRDV($_POST["heure"], $_POST["duree"], $_POST["medecin"], $_POST["dateRdv"]) < 0){
+			echo " l'heure : ".$_POST["heure"]."la duree".$_POST["duree"]."le medecin".$_POST["medecin"]."la date :".$_POST["dateRdv"];
+			if(verificationRDV($_POST["heure"], $_POST["duree"], $_POST["medecin"], $_POST["dateRdv"]) != 0){
 				$req1 = $linkpdo -> prepare ('INSERT into rdv (idPatient, idMed, dateRdv, heure, duree) values (:idPatient, :idMed, :dateRdv, :heure, :duree)');
 				$req1 -> execute(array(	'idPatient'=>$_POST["patientSelect"], 
 									'idMed'=>$_POST["medecin"], 
@@ -182,8 +183,8 @@
 	</div>
 	<?php
 	function verificationRDV($heureDebutNV, $duree, $med, $jour){
-		include("ConnexionBDD.php");
-		$res = $linkpdo->query("SELECT * FROM rdv WHERE idMed='$med' AND dateRdv='$jour' ORDER BY heure DESC");
+		//include("ConnexionBDD.php");
+		$res = $linkpdo->query("SELECT * FROM rdv WHERE idMed='$med' AND dateRdv='$jour'");
 		while($data = $res->fetch()) {
 			$heureFinRDV = $data["heure"] + $data["duree"];
 			$testRDVAvant = $data["heure"] - $data["duree"];
