@@ -117,14 +117,24 @@
 			</table>
 		</fieldset>
 	</div>
+	<?php 
+			$i=0;
+			if(isset($_POST["triMedecin"])){
+				$res3 = $linkpdo->query('SELECT * FROM rdv WHERE '.$_POST["triMedecin"].' ORDER BY dateRdv DESC, heure DESC'); 
+			}
+			else{
+				$res3 = $linkpdo->query('SELECT * FROM rdv  ORDER BY dateRdv DESC, heure DESC'); 
+			}
+	?>
 	<div id="consultations">
 		<br><center>
 		<table id="listeRDV">
 		<tr ><th colspan=3>Liste des RDV de : </th>
 			<th colspan=2><form  method="POST" action="./?consult=ok">
 				<select name="triMedecin"  onchange="this.form.submit()">
-					<!--<option value="1">Tout le monde</option>-->
+					<option value="1">Tout le monde</option>
 					<?php
+					//echo "<option value=' ' selected ='selected'></option>";
 					$res = $linkpdo->query('SELECT * FROM medecin');
 						while($data = $res->fetch()) {
 								if(isset($_POST["triMedecin"]) && $_POST["triMedecin"] == $data["idMed"]){
@@ -146,12 +156,12 @@
 		</tr>
 		<?php 
 			$i=0;
-			if(isset($_POST["triMedecin"])){
+			/*if(isset($_POST["triMedecin"])){
 				$res3 = $linkpdo->query('SELECT * FROM rdv WHERE '.$_POST["triMedecin"].' ORDER BY dateRdv DESC, heure DESC'); 
 			}
 			else{
 				$res3 = $linkpdo->query('SELECT * FROM rdv  ORDER BY dateRdv DESC, heure DESC'); 
-			}
+			}*/
 			while($data = $res3->fetch()) { 
 		?>
 		 		<tr> 
