@@ -83,4 +83,8 @@
 
 #planning{
 	background-color: rgba(27, 20, 120, 0.9);
+	width: 500px;
+    float: right;
+    margin: 40px;
+    padding: 20px;
 }

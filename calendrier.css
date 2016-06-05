@@ -31,7 +31,9 @@
 }
 
 .affichMois{
-	padding-left: 40px; 
+	max-width: 360px;
+    margin: auto;
+    padding-top: 20px;
 }
 
 .affichMois table{
