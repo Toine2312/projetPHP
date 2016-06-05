@@ -129,7 +129,7 @@
 					$res = $linkpdo->query('SELECT * FROM medecin');
 						while($data = $res->fetch()) {
 								if(isset($_POST["triMedecin"]) && $_POST["triMedecin"] == $data["idMed"]){
-									echo "<option value='idMed=".$data["idMed"]."' selected='selected'>".$data["nomM"]." ".$data["prenomM"]."</option>";
+									echo "<option value='idMed=".$data["idMed"]."'  selected ='selected'>".$data["nomM"]." ".$data["prenomM"]."</option>";
 								}else{
 									echo "<option value='idMed=".$data["idMed"]."'>".$data["nomM"]." ".$data["prenomM"]."</option>";
 								}
