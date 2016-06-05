@@ -1,5 +1,5 @@
 <div class="pageInterne">
-	<p id="titrestat">Statistique du cabinet</p>
+	<p id="titrestat">Statistiques du cabinet</p>
 	<br>
 	
 	<div id="PageStat">
@@ -77,7 +77,7 @@
 		
 		
 		<div id="divtableauStatMed">
-			<p id="textstat">Statistique Medecins</p>
+			<p id="textstat">Statistiques Medecins</p>
 			<table id="tableauStatMed">
 				<thead id="enteteTabStatMed">
 					<tr>

@@ -16,6 +16,7 @@
 		<link rel="stylesheet" type="text/css" href="Medecin.css" media="all"/>
 		<link rel="stylesheet" type="text/css" href="Stat.css" media="all"/>
 		<link rel="stylesheet" type="text/css" href="rdv.css" media="all"/>
+		<link rel="stylesheet" type="text/css" href="calendrier.css" media="all"/>
 	</head>
 	<body>
 			<header>
