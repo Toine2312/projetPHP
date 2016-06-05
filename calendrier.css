@@ -3,6 +3,7 @@
 }
 
 .mois ul{
+    width: 460px;
 	list-style: none;
 }
 
@@ -32,7 +33,6 @@
 
 .affichMois{
 	max-width: 360px;
-    margin: auto;
     padding-top: 20px;
 }
 
