@@ -76,14 +76,15 @@
 							<?php 
 								$patient = $_POST["patient"];
 								if(isset($_POST["patient"])){
-									echo"<optgroup>Medecin referent ";
+									echo"<optgroup label='Medecin referent' >";
 									$res = $linkpdo->query('SELECT * FROM medecin WHERE idMed = (SELECT idMed FROM patient where idPatient="'.$_POST["patient"].'")');
 									if($data = $res->fetch()) {
 										echo "<option value='".$data['idMed']."' selected='selected'>".$data['nomM']." ".$data['prenomM']."</option>";
 									}
 									echo"</optgroup>";
 								}
-								echo"<optgroup>";
+								echo"<optgroup label='Autres medecins'>";
+								echo "<option value=' ' selected ='selected'></option>";
 								$res = $linkpdo->query('SELECT * FROM medecin /*WHERE idMed <> '.$POST["medRef"].')*/');
 								while($data = $res->fetch()) {
 									echo "<option value='".$data['idMed']."'>".$data['nomM']." ".$data['prenomM']."</option>";
