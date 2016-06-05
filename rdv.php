@@ -46,7 +46,7 @@
 
 				<tr>
 					<th>Patients</th>
-					<form name="validP" method="POST" action="./?consult=ok&mois=<?php echo date('n')?>">
+					<form name="validP" method="POST" action="./?consult=ok?>">
 					<td>
 						<select name="patient" onchange="this.form.submit()"> 
 							<?php 
@@ -69,7 +69,7 @@
 				</form>
 				<tr>
 					<th>Medecins</th>
-				<form name="validP" method="POST" action="./?consult=ok&mois=<?php echo date('n')?>">
+				<form name="validP" method="POST" action="./?consult=ok">
 					<td>
 						<select name="medecin">
 							<?php 
@@ -113,14 +113,11 @@
 			</table>
 		</fieldset>
 	</div>
-	<div id="planning">
-		<?php include("calendrier.php") ?>
-	</div>
 	<div id="consultations">
 		<br><center>
 		<table id="listeRDV">
 		<tr ><th colspan=3>Liste des RDV de : </th>
-			<th colspan=2><form  method="POST" action="./?consult=ok&mois=<?php echo date('n')?>">
+			<th colspan=2><form  method="POST" action="./?consult=ok">
 				<select name="triMedecin"  onchange="this.form.submit()">
 					<option value="1">Tout le monde</option>
 					<?php
