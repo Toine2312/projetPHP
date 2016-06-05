@@ -1,7 +1,10 @@
 <?php
 	session_start();
-	if (isset($_SESSION["etat"])) {
+	if (!isset($_SESSION["etat"])) {
 		$_SESSION["etat"]="Connexion";
+	}
+	if(isset($_SESSION["login"])){
+		$_SESSION["etat"]="Deconnexion";
 	}
 	
 	include("ConnexionBDD.php");

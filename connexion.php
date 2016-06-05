@@ -1,5 +1,5 @@
 <?php
-// la connexion est basée sur le ldap inra
+
 	$connecte=0;
 	$erreur_conn=1;
 	if (isset($_SESSION["login"]))
