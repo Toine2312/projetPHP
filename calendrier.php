@@ -1,9 +1,10 @@
 <?php 
+		include("Date.php");
 		$date = new Date();
 		$annee = date("Y");
 		$calendrier = $date->getAll($annee);
 		//print_r($calendrier);
-		$events = rdvMedecin($_POST["medRef"], $annee);
+		//$events = rdvMedecin($_POST["medRef"], $annee);
 		
 	?>
 <div class="calendrier">
@@ -92,7 +93,7 @@
 			return $r;
 	}
  ?>
-</div>
 
+</div>
 
 
