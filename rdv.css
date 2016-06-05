@@ -1,6 +1,6 @@
 #titre{
 	font-size: 40px;
-	color:white;
+	color:rgba(27, 20, 120, 1);
 	font-weight: bold;
 }
 
@@ -24,7 +24,7 @@
 	color: white;
 	margin-top: 20px;
 	padding: 20px;
-	background-color: rgba(27, 20, 120, 0.9);;
+	background-color: rgba(27, 20, 120, 0.9);
 }
 
 #listeRDV th{

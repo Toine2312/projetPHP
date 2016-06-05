@@ -27,7 +27,6 @@
  								'mdp' => $_POST["mdp"]));
 			if($data = $req->fetch())
 			{
-				$res=mysqli_fetch_object($req);
 				$connecte=1;
 				$erreur_conn=0;
 				echo "<center>Vous &ecirc;tes connect&eacute;<br></center>";
