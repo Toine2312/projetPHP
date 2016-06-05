@@ -183,7 +183,7 @@
 	</div>
 	<?php
 	function verificationRDV($heureDebutNV, $duree, $med, $jour){
-		//include("ConnexionBDD.php");
+		include("ConnexionBDD.php");
 		$res = $linkpdo->query("SELECT * FROM rdv WHERE idMed='$med' AND dateRdv='$jour'");
 		while($data = $res->fetch()) {
 			$heureFinRDV = $data["heure"] + $data["duree"];
