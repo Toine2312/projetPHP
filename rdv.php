@@ -84,7 +84,9 @@
 									echo"</optgroup>";
 								}
 								echo"<optgroup label='Autres medecins'>";
+								if(!isset($_POST["patient"])){
 								echo "<option value=' ' selected ='selected'></option>";
+								}
 								$res = $linkpdo->query('SELECT * FROM medecin /*WHERE idMed <> '.$POST["medRef"].')*/');
 								while($data = $res->fetch()) {
 									echo "<option value='".$data['idMed']."'>".$data['nomM']." ".$data['prenomM']."</option>";
