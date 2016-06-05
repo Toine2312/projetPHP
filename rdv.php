@@ -123,9 +123,9 @@
 		<tr ><th colspan=3>Liste des RDV de : </th>
 			<th colspan=2><form  method="POST" action="./?consult=ok">
 				<select name="triMedecin"  onchange="this.form.submit()">
-					<option value="1">Tout le monde</option>
+					<!--<option value="1">Tout le monde</option>-->
 					<?php
-					$res = $linkpdo->query('SELECT * FROM medecin /*WHERE idMed <> '.$POST["medRef"].')*/');
+					$res = $linkpdo->query('SELECT * FROM medecin');
 						while($data = $res->fetch()) {
 								if(isset($_POST["triMedecin"]) && $_POST["triMedecin"] == $data["idMed"]){
 									echo "<option value='idMed=".$data['idMed']."' selected='selected'>".$data['nomM']." ".$data['prenomM']."</option>";
