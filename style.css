@@ -97,7 +97,7 @@ header{
 }
 
 #BandeColor{
-  background-color: rgba(25, 144, 206, 1);
+  background-color: rgba(27, 20, 120, 1);
   height: 10px;
   margin: 0px;
   border: inherit;
@@ -127,7 +127,7 @@ header{
 
 
 footer{
-  background-color: rgba(25, 144, 206, 1);
+  background-color: rgba(27, 20, 120, 1);
   width:100%;
   bottom:0;
   padding-top: 10px;
