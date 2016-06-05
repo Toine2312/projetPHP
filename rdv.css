@@ -55,7 +55,7 @@
 	color: white;
 	margin: 40px;
 	padding: 20px;
-	background-color: rgba(27, 20, 120, 0.9);;
+	background-color: rgba(27, 20, 120, 0.9);
 	width: 300px;
 	float: left;
 }
@@ -79,4 +79,8 @@
 #formAjout fieldset table tr td{
 	text-align: left;
 	padding: 5px;
+}
+
+#planning{
+	background-color: rgba(27, 20, 120, 0.9);
 }

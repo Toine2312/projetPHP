@@ -113,7 +113,9 @@
 			</table>
 		</fieldset>
 	</div>
-	<?php include("calendrier.php") ?>
+	<div id="planning">
+		<?php include("calendrier.php") ?>
+	</div>
 	<div id="consultations">
 		<br><center>
 		<table id="listeRDV">
